@@ -30,9 +30,20 @@ double *create_1d_double_array(int n1, const char *name){
   	return array;
 }
 
+int *create_1d_int_array(int n1, const char *name){
+
+  	int *array = (int *) smalloc(n1*sizeof(double),name);
+  	return array;
+}
 
 
 void destroy_1d_double_array(double *array){
+
+  	if (array == NULL) return;
+  	sfree(array);
+}
+
+void destroy_1d_int_array(int *array){
 
   	if (array == NULL) return;
   	sfree(array);

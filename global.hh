@@ -1,47 +1,66 @@
-#include <stdio.h>     //Include the standard input/output libraries
-#include <iostream>  //Cout and Cin etc.
+#include <stdio.h>
+#include <iostream>
 #include <fstream>
 #include <complex>
-#include <stdlib.h>    //Include standard fucntion libraries
-#include <math.h>      //Use the math function libraries
-#include <time.h>      //Call system time libraries to define the integer seed for random numbers
-#include "./include/smemory.hh"  //Use my custom memory handling class
-//#include </opt/sharcnet/fftw/3.3.2/intel/include/fftw3.h> // This is for Sharcnet                                                        
-//#include </usr/include/fftw3.h> // This is for use on Landua                                                                           
-#include </usr/local/include/fftw3.h> // This is for local use (My MacBookPro)
+#include <stdlib.h> 
+#include <math.h>      
+#include "./INCLUDE/smemory.hh"
 using namespace std;
 
-#define Nx 32
-#define Ny 32
-
-#define ChainType 3 // We will add the e type manually
 #define Pi 3.14159
-#define Temp 400.0
-#define e 1.6e-19
-#define eps_0 8.85e-12
-#define K_Boltz 1.38e-23
-#define Kuhn 1.0e-9
-#define rho_0 1.0e28
+
+#define NBox 32
+#define ChainType 6
+#define deltaBox 0.1/NBox
+
+// Relative chain lengths
+double kappa_homopolymer;
+double kappa_diblock;
+double kappa_triblock;
+
+// Single chain partition functions
+double Q_ABC, Q_DE, Q_F;
+
+// Component of free energy
+double totalFreeEnergy, Interaction_fE, Omega_fE, Entropy_fE, Homogenous_fE;
+
+// Distance from center of cylinder
+double R;
+
+// Volume of the system
+double Volume;
+
+// Simple mixing parameters 
+double epsilon_w=0.1;
+double epsilon_phi=0.1;
+
+// Control parameters
+double delta_W, delta_Phi;
+double precision=1.0e-3;
+
+double LR, LZ;
+double ***w, ***phi, *phiAve, *p_ave;
+double  ***cal_w, ***del_w, **del_phi;
+double **eta, **chiMatrix;
+double ds, *drz;
+int *Ns;
 
 
-int box_min;
-int Iomega;
-int PAR_AS;                     // Parallel configuration, with A attracted to the substrate
-int PAR_BS;                     // Parallel configuration, with B attrcated to the substrate
-int PER;                        // Perpendicular configuration
-int MIX;                        // Mixed confuration, with parrallel and perpendicular
-int Initial_Read;
+// Propagators
+double ***q0, ***q0dag;
+double ***q1, ***q1dag;
+double ***q2, ***q2dag;
+double ***q3, ***q3dag;
+double ***q4, ***q4dag;
+double ***q5, ***q5dag;
+double **qini, **qmid;
 
-double tau; // This is the tau from the theory
-double mu; // Surface interaction
-double NAB,f,pot_diff;
-double kA,kB,PA;        
-double pAave, pBave, pIave;
-double converg;
-double psi_bc_1;
-double psi_bc_2;
-double Free_Energy;
-double Lx,Ly;
+// ADI Parameters
+double *Mu, *Mm, *Ml;
+double *Rvector; 
 
-fftw_plan forward_plan, inverse_plan;
-double *input_q, *transformed_q, *final_q;
+// dummy functions
+double **dum_func1,**dum_func2,**dum_func3;
+
+
+
