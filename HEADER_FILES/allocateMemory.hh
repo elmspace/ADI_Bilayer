@@ -8,6 +8,7 @@ void allocateMemory(int index){
     p_ave=create_1d_double_array(ChainType,"p_ave");
     phi=create_3d_double_array(ChainType,NBox,NBox,"phi"); 
     eta=create_2d_double_array(NBox,NBox,"eta");
+    pin=create_2d_double_array(NBox,NBox,"pin");
     Ns=create_1d_int_array(ChainType,"Ns");
     drz=create_1d_double_array(2,"drz");
     del_phi=create_2d_double_array(NBox,NBox,"del_phi");
@@ -23,6 +24,9 @@ void allocateMemory(int index){
     dum_func1=create_2d_double_array(NBox,NBox,"dum_func1");
     dum_func2=create_2d_double_array(NBox,NBox,"dum_func2");
     dum_func3=create_2d_double_array(NBox,NBox,"dum_func3");
+    w_ave=create_1d_double_array(ChainType,"w_ave");
+    del_w_ave=create_1d_double_array(ChainType,"del_w_ave");
+    f=create_1d_double_array(ChainType,"f");
   }else if(index==2){
     q0=create_3d_double_array(NBox,NBox,Ns[0],"q0");
     q1=create_3d_double_array(NBox,NBox,Ns[1],"q1");
@@ -42,6 +46,7 @@ void allocateMemory(int index){
     destroy_1d_double_array(phiAve);
     destroy_1d_double_array(p_ave);
     destroy_2d_double_array(eta);
+    destroy_2d_double_array(pin);
     destroy_3d_double_array(phi);
     destroy_1d_int_array(Ns);
     destroy_1d_double_array(drz);
@@ -70,6 +75,9 @@ void allocateMemory(int index){
     destroy_2d_double_array(dum_func1);
     destroy_2d_double_array(dum_func2);
     destroy_2d_double_array(dum_func3);
+    destroy_1d_double_array(w_ave);
+    destroy_1d_double_array(del_w_ave);
+    destroy_1d_double_array(f);
     //-------------------------------------
   }else{
     std::cout<<"Something bad happened in allocateMemory function."<<std::endl;

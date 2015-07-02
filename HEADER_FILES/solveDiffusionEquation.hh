@@ -84,6 +84,7 @@ void solveDiffusionEquation(int species){
     for(i=0;i<NBox;i++){
       for(j=0;j<NBox;j++){
 	qini[i][j]=1.0;
+	q5[i][j][0]=1.0;
       }
     }
     ADI(5,1); 

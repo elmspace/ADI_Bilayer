@@ -16,6 +16,7 @@ Written By:   Ashkan Dehghan [McMaster University]
 #include "./HEADER_FILES/saveData.hh"
 #include "./HEADER_FILES/calculateHomogenousEnergy.hh"
 #include "./HEADER_FILES/calculateFreeEnergy.hh"
+#include "./HEADER_FILES/bisectionSolver.hh"
 #include "./HEADER_FILES/boxMinimize.hh"
 
 using namespace std;
@@ -29,8 +30,16 @@ int main(){
 
   //boxMinimize();
 
-  calculateFreeEnergy();
 
+  //mu_h=bisectionSolver(mu_h);
+
+
+  do{
+    calculateFreeEnergy();
+    std::cout<<"R= "<<(R+drz[0]*(NBox/2)/4.3)<<"   fE= "<<totalFreeEnergy*Volume/(2.0*Pi*(4.3*4.3*4.3))<<std::endl;
+    R+=10.0;
+  }while(R<100);
+    
   allocateMemory(-1); // Deallocating memory
   
   return 0;

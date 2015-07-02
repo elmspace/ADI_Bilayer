@@ -22,7 +22,7 @@ double integrationTrapezoidal (double **func, int imin, int imax, int jmin, int 
     funcSum+=func[i][j]*di*dj*(i*di+radius);
     i=imax;
     j=jmax;
-    funcSum+=func[i][j];
+    funcSum+=func[i][j]*di*dj*(i*di+radius);
     for(i=(imin+1);i<(imax);i++){
       j=jmin;
       funcSum+=2.0*func[i][j]*di*dj*(i*di+radius);

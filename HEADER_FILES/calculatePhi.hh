@@ -27,12 +27,25 @@ void calculatePhi(){
 	    if(chain==5){phi[chain][i][j]+=q5[i][j][s]*q5dag[i][j][Ns[chain]-s]*ds;}
 	  }
 	}
-	if(chain==0){phi[chain][i][j]*=phiAve[0]/(kappa_triblock*Q_ABC);}
-	if(chain==1){phi[chain][i][j]*=phiAve[0]/(kappa_triblock*Q_ABC);}
-	if(chain==2){phi[chain][i][j]*=phiAve[0]/(kappa_triblock*Q_ABC);}
-	if(chain==3){phi[chain][i][j]*=phiAve[1]/(kappa_diblock*Q_DE);}
-	if(chain==4){phi[chain][i][j]*=phiAve[1]/(kappa_diblock*Q_DE);}
-	if(chain==5){phi[chain][i][j]*=phiAve[2]/(kappa_homopolymer*Q_F);}
+
+	if(Canonical==1){
+	  if(chain==0){phi[chain][i][j]*=phiAve[0]/(kappa_triblock*Q_ABC);}
+	  if(chain==1){phi[chain][i][j]*=phiAve[0]/(kappa_triblock*Q_ABC);}
+	  if(chain==2){phi[chain][i][j]*=phiAve[0]/(kappa_triblock*Q_ABC);}
+	  if(chain==3){phi[chain][i][j]*=phiAve[1]/(kappa_diblock*Q_DE);}
+	  if(chain==4){phi[chain][i][j]*=phiAve[1]/(kappa_diblock*Q_DE);}
+	  if(chain==5){phi[chain][i][j]*=phiAve[2]/(kappa_homopolymer*Q_F);}
+	}else if(GrandCanonical==1){
+	  if(chain==0){phi[chain][i][j]*=(act_t/kappa_triblock);}
+	  if(chain==1){phi[chain][i][j]*=(act_t/kappa_triblock);}
+	  if(chain==2){phi[chain][i][j]*=(act_t/kappa_triblock);}
+	  if(chain==3){phi[chain][i][j]*=1.0;}
+	  if(chain==4){phi[chain][i][j]*=1.0;}
+	  if(chain==5){phi[chain][i][j]*=(act_h/kappa_homopolymer);}
+	}else{
+	  std::cout<<"Something is wrong in calculatePhi function!"<<std::endl;
+	}
+	
       }
     }
   }

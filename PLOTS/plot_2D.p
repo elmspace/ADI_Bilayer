@@ -7,11 +7,8 @@ set pm3d
 set iso 100
 set samp 100
 set palette model RGB
-set dgrid3d 32,32,1
+set dgrid3d 32,32,2
 set pm3d flush begin ftriangles scansforward interpolate 10,5
-
-set xlabel 'x'  font ",32"
-set ylabel 'y'  font ",32"
    
 unset key
 unset sur
@@ -20,4 +17,4 @@ set view map
 set autoscale
 set size square
 
-splot path."phi2D.dat" using 1:2:6
+   splot path."phi2D.dat" using 1:2:($6+$7)

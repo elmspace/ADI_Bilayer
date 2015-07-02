@@ -4,7 +4,7 @@
 void setParameters( ){
 
   // Hydrophobic/phillic interaction
-  double mol_int=0.02;
+  double mol_int=0.3;
   
   // Interaction parameters
   double xAB,xAC,xAD,xAE,xAF;
@@ -16,29 +16,39 @@ void setParameters( ){
   double NABC_triblock, NDE_diblock, NF_homopolymer; 
   
 
+  // Setting the chemical potentials
+  mu_t=-50.0;
+  mu_h=-5.0;//-4.65937
+  mu_d=0.0;
   // Setting the avrerage concentrations______
   phiAve[0]=0.00005; // ABC Triblock
   phiAve[1]=0.9999; // DE Diblock
   phiAve[2]=1.0-(phiAve[0]+phiAve[1]); // F Homopolymer
   // Setting the chain lengths________________
-  Ns[0]=2;//NA
-  Ns[1]=2;//NB
-  Ns[2]=2;//NC
+  Ns[0]=50;//NA
+  Ns[1]=100;//NB
+  Ns[2]=50;//NC
   Ns[3]=50;//ND
   Ns[4]=50;//NE
-  Ns[5]=2;//NF
-  NABC_triblock=Ns[0]+Ns[1]+Ns[2];
-  NDE_diblock=Ns[3]+Ns[4];
-  NF_homopolymer=Ns[5];
+  Ns[5]=100;//NF
+  NABC_triblock=(double)(Ns[0]+Ns[1]+Ns[2]);
+  NDE_diblock=(double)(Ns[3]+Ns[4]);
+  NF_homopolymer=(double)(Ns[5]);
+  f[0]=(double)Ns[0]/NABC_triblock;
+  f[1]=(double)Ns[1]/NABC_triblock;
+  f[2]=(double)Ns[2]/NABC_triblock;
+  f[3]=(double)Ns[3]/NDE_diblock;
+  f[4]=(double)Ns[4]/NDE_diblock;
+  f[5]=(double)Ns[5]/NF_homopolymer;
   // Chains measured with respect to diblock
   kappa_homopolymer=NF_homopolymer/NDE_diblock;
   kappa_diblock=NDE_diblock/NDE_diblock;
   kappa_triblock=NABC_triblock/NDE_diblock;
   ds=1.0/NDE_diblock;
   // Setting the box dimensions_______________
-  R=600.0;
-  LR=4.0;
-  LZ=4.0;
+  R=10.0;
+  LR=10.0;
+  LZ=10.0;
   drz[0]=LR/NBox;
   drz[1]=LZ/NBox;
   // Setting individual average concentration_
@@ -49,22 +59,22 @@ void setParameters( ){
   p_ave[4]=phiAve[1]*(double)(Ns[4]/NDE_diblock); // E
   p_ave[5]=phiAve[2]; // F
   // Setting the interactions_________________
-
-  xAB=mol_int*NDE_diblock;
+  xAB=0.0;//mol_int*NDE_diblock;
   xAC=0.0;
   xAD=0.0;
-  xAE=mol_int*NDE_diblock;
+  xAE=0.0;//mol_int*NDE_diblock;
   xAF=0.0;
-  xBC=mol_int*NDE_diblock;
-  xBD=mol_int*NDE_diblock;
+  xBC=0.0;//mol_int*NDE_diblock;
+  xBD=0.0;//mol_int*NDE_diblock;
   xBE=0.0;
-  xBF=mol_int*NDE_diblock;
+  xBF=0.0;//mol_int*NDE_diblock;
   xCD=0.0;
-  xCE=mol_int*NDE_diblock;
+  xCE=0.0;//mol_int*NDE_diblock;
   xCF=0.0;
   xDE=mol_int*NDE_diblock;
   xDF=0.0;
   xEF=mol_int*NDE_diblock;
+
   
   // Setting the ChiMatrix ___________________
   chiMatrix[0][0]=0.0;

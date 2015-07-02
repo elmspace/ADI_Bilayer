@@ -13,6 +13,19 @@ using namespace std;
 #define ChainType 6
 #define deltaBox 0.1/NBox
 
+// Choosing the type of ensemble
+int Canonical = 0;
+int GrandCanonical = 1;
+
+int Bilayer = 0;
+int Pore = 1;
+
+double pin_cond = 1.0; // set to zero to turn off
+  
+// Simple mixing parameters 
+double epsilon_w=0.01;
+double epsilon_phi=0.01;
+
 // Relative chain lengths
 double kappa_homopolymer;
 double kappa_diblock;
@@ -24,26 +37,29 @@ double Q_ABC, Q_DE, Q_F;
 // Component of free energy
 double totalFreeEnergy, Interaction_fE, Omega_fE, Entropy_fE, Homogenous_fE;
 
+// Chemical potential
+double mu_t, mu_d, mu_h;
+double act_h, act_t;
+
+
 // Distance from center of cylinder
 double R;
 
 // Volume of the system
 double Volume;
 
-// Simple mixing parameters 
-double epsilon_w=0.1;
-double epsilon_phi=0.1;
-
 // Control parameters
 double delta_W, delta_Phi;
 double precision=1.0e-3;
 
 double LR, LZ;
-double ***w, ***phi, *phiAve, *p_ave;
-double  ***cal_w, ***del_w, **del_phi;
-double **eta, **chiMatrix;
+double ***w, ***phi, *phiAve, *p_ave, *w_ave;
+double  ***cal_w, ***del_w, **del_phi, *del_w_ave;
+double **eta, **pin, **chiMatrix;
 double ds, *drz;
+double *f;
 int *Ns;
+
 
 
 // Propagators
