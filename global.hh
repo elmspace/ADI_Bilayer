@@ -4,7 +4,7 @@
 #include <complex>
 #include <stdlib.h> 
 #include <math.h>      
-#include "./INCLUDE/smemory.hh"
+#include "./include/smemory.hh"
 using namespace std;
 
 #define Pi 3.14159
