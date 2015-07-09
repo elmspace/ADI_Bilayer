@@ -57,7 +57,7 @@ void setParameters( ){
   // Setting the box dimensions_______________
   //R=50.0;
   LR=13.3;
-  LZ=13.3;
+  LZ=14.3;
   drz[0]=LR/NBox;
   drz[1]=LZ/NBox;
   // Setting individual average concentration_

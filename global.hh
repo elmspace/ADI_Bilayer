@@ -17,8 +17,8 @@ using namespace std;
 int Canonical = 1;
 int GrandCanonical = 0;
 
-int Bilayer = 1;
-int Pore = 0;
+int Bilayer = 0;
+int Pore = 1;
 
 double pin_cond;
   
