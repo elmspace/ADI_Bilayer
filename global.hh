@@ -14,13 +14,13 @@ using namespace std;
 #define deltaBox 0.1/NBox
 
 // Choosing the type of ensemble
-int Canonical = 0;
-int GrandCanonical = 1;
+int Canonical = 1;
+int GrandCanonical = 0;
 
-int Bilayer = 0;
-int Pore = 1;
+int Bilayer = 1;
+int Pore = 0;
 
-double pin_cond = 1.0; // set to zero to turn off
+double pin_cond;
   
 // Simple mixing parameters 
 double epsilon_w=0.01;
@@ -39,14 +39,16 @@ double totalFreeEnergy, Interaction_fE, Omega_fE, Entropy_fE, Homogenous_fE;
 
 // Chemical potential
 double mu_t, mu_d, mu_h;
-double act_h, act_t;
+double act_h, act_t, act_d, mu_ref;
 
+// Chain polymerization
+double NABC_triblock, NDE_diblock, NF_homopolymer;
 
 // Distance from center of cylinder
 double R;
 
 // Volume of the system
-double Volume;
+double Volume, Area;
 
 // Control parameters
 double delta_W, delta_Phi;

@@ -1,3 +1,9 @@
+// Check the TDI algrm
+// ABA symmetry reduce ADI calculations
+
+
+
+
 double alpha(int i){
   double val;
   val=((ds)/(4.0*drz[0]*(((double)i)*drz[0]+R)))-((ds)/(2.0*drz[0]*drz[0]));

@@ -14,7 +14,7 @@ double bisectionSolver (double &mu){
   fa=totalFreeEnergy;
 
   pass=0;
-  b=a;
+  b=a+0.05;
   do{
     b-=del_mu;
     mu=b;

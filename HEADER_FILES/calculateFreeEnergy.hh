@@ -14,19 +14,20 @@ void calculateFreeEnergy( ){
     }
   }
   Volume=2.0*Pi*integrationTrapezoidal(dum_func1,0,(NBox-1),0,(NBox-1),drz[0],drz[1],'c');
+  Area=Pi*(R+(drz[0]*NBox/2.0))*(R+(drz[0]*NBox/2.0));
   
-  //Volume=2.0*Pi*(0.5*(NBox-1)*drz[1]*((((NBox-1)*drz[0]+R)*((NBox-1)*drz[0]+R))-(R*R)));
 
   // Setting the const chemical potential
-  act_h=exp(kappa_homopolymer*(mu_h)-mu_d);
-  act_t=exp(kappa_triblock*(mu_t)-mu_d);
+  act_h=exp(kappa_homopolymer*(mu_h-mu_ref));
+  act_t=exp(kappa_triblock*(mu_t-mu_ref));
+  act_d=exp(kappa_diblock*(mu_d-mu_ref));
   
   // Homogenous free energy
   Homogenous_fE=calculatedHomogenousEnergy();
 
   iter=0;
   do{
-    
+ 
     // Solving diffusion equations________________
     solveDiffusionEquation(0);
     solveDiffusionEquation(1);
@@ -41,7 +42,7 @@ void calculateFreeEnergy( ){
     if(Canonical==1){
       Entropy_fE=((phiAve[0]/kappa_triblock)*log(Q_ABC))+((phiAve[1]/kappa_diblock)*log(Q_DE))+((phiAve[2]/kappa_homopolymer)*log(Q_F));
     }else if(GrandCanonical==1){
-      Entropy_fE=(act_t*Q_ABC/kappa_triblock)+Q_DE+(act_h*Q_F/kappa_homopolymer);
+      Entropy_fE=(act_t*Q_ABC/kappa_triblock)+(act_d*Q_DE/kappa_diblock)+(act_h*Q_F/kappa_homopolymer);
     }
 
     Omega_fE=0.0;
@@ -59,22 +60,45 @@ void calculateFreeEnergy( ){
 	}
       }
     }
-    Interaction_fE=integrationTrapezoidal(dum_func1,0,(NBox-1),0,(NBox-1),drz[0],drz[1],'c');
+    Interaction_fE=integrationTrapezoidal(dum_func1,0,(NBox-1),0,(NBox-1),drz[0],drz[1],'c')/2.0;// 2 is for double counting
     Omega_fE=integrationTrapezoidal(dum_func2,0,(NBox-1),0,(NBox-1),drz[0],drz[1],'c');
         
     Omega_fE*=((2.0*Pi)/Volume);
-    Interaction_fE*=((2.0*Pi)/(2.0*Volume)); // 2 is for double counting
+    Interaction_fE*=((2.0*Pi)/Volume);
     
-    totalFreeEnergy=Interaction_fE-Omega_fE-Entropy_fE-Homogenous_fE;
-    //totalFreeEnergy=Interaction_fE-Omega_fE-Entropy_fE;
+    //totalFreeEnergy=Interaction_fE-Omega_fE-Entropy_fE-Homogenous_fE;
+    totalFreeEnergy=Interaction_fE-Omega_fE-Entropy_fE;
     
     //std::cout<<iter<<" "<<totalFreeEnergy<<"   "<<delta_W<<"  Phi_tri_ave="<<(p_ave[0]+p_ave[1]+p_ave[2])<<"  Phi_di_ave="<<(p_ave[3]+p_ave[4])<<"  Phi_hom_ave="<<p_ave[5]<<std::endl;
+    //std::cout<<iter<<"   R= "<<(R+(drz[0]*NBox/2.0))<<"     F= "<<(totalFreeEnergy*Volume)<<"     dW= "<<delta_W<<std::endl;
     
   
     saveData();
     iter++;
-  }while(delta_W>precision);
+  }while((delta_W>precision)||(iter<500));
+
   
 };
 
 
+
+
+
+
+
+
+
+
+
+    /*
+    if(iter>600 && iter<800){
+      pin_cond = 1.0;
+      for(i=0;i<NBox/2;i++){
+	for(j=0;j<NBox;j++){
+	  phi[3][i][j]=0.0;
+	  phi[4][i][j]=0.0;
+	  phi[5][i][j]=1.0;
+	}
+      }
+    }
+    */

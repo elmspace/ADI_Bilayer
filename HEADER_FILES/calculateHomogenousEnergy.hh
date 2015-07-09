@@ -51,8 +51,8 @@ double calculatedHomogenousEnergy( ){
       p_ave[0]=act_t*Qt_ave*f[0];
       p_ave[1]=act_t*Qt_ave*f[1];
       p_ave[2]=act_t*Qt_ave*f[2];
-      p_ave[3]=Qd_ave*f[3];
-      p_ave[4]=Qd_ave*f[4];
+      p_ave[3]=act_d*Qd_ave*f[3];
+      p_ave[4]=act_d*Qd_ave*f[4];
       p_ave[5]=act_h*Qh_ave;
 
       for(ii=0;ii<ChainType;ii++){

@@ -39,8 +39,8 @@ void calculatePhi(){
 	  if(chain==0){phi[chain][i][j]*=(act_t/kappa_triblock);}
 	  if(chain==1){phi[chain][i][j]*=(act_t/kappa_triblock);}
 	  if(chain==2){phi[chain][i][j]*=(act_t/kappa_triblock);}
-	  if(chain==3){phi[chain][i][j]*=1.0;}
-	  if(chain==4){phi[chain][i][j]*=1.0;}
+	  if(chain==3){phi[chain][i][j]*=(act_d/kappa_diblock);}
+	  if(chain==4){phi[chain][i][j]*=(act_d/kappa_diblock);}
 	  if(chain==5){phi[chain][i][j]*=(act_h/kappa_homopolymer);}
 	}else{
 	  std::cout<<"Something is wrong in calculatePhi function!"<<std::endl;

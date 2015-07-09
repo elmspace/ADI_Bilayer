@@ -7,7 +7,7 @@ set pm3d
 set iso 100
 set samp 100
 set palette model RGB
-set dgrid3d 32,32,2
+set dgrid3d 32,32,4
 set pm3d flush begin ftriangles scansforward interpolate 10,5
    
 unset key

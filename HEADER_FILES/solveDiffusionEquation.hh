@@ -27,27 +27,43 @@ void solveDiffusionEquation(int species){
     }
     ADI(2,1);
     // Solving backward________________________________
-    for(i=0;i<NBox;i++){
-      for(j=0;j<NBox;j++){
-	qini[i][j]=1.0;
-	q2dag[i][j][0]=1.0;
+    if(Ns[0]==Ns[2]){ // If the ABA is symmetric then we can do this
+      for(i=0;i<NBox;i++){
+	for(j=0;j<NBox;j++){
+	  for(s=0;s<Ns[0];s++){
+	    q0dag[i][j][s]=q2[i][j][s];
+	  }
+	  for(s=0;s<Ns[1];s++){
+	    q1dag[i][j][s]=q1[i][j][s];
+	  }
+	  for(s=0;s<Ns[2];s++){
+	    q2dag[i][j][s]=q0[i][j][s];
+	  }
+	}
       }
-    }
-    ADI(2,-1); 
-    for(i=0;i<NBox;i++){
-      for(j=0;j<NBox;j++){
-	qini[i][j]=q2dag[i][j][Ns[2]-1];
-	q1dag[i][j][0]=q2dag[i][j][Ns[2]-1];
+    }else{ // Else we have to solve the backward propagators
+      for(i=0;i<NBox;i++){
+	for(j=0;j<NBox;j++){
+	  qini[i][j]=1.0;
+	  q2dag[i][j][0]=1.0;
+	}
       }
-    }
-    ADI(1,-1);
-    for(i=0;i<NBox;i++){
-      for(j=0;j<NBox;j++){
-	qini[i][j]=q1dag[i][j][Ns[1]-1];
-	q0dag[i][j][0]=q1dag[i][j][Ns[1]-1];
+      ADI(2,-1); 
+      for(i=0;i<NBox;i++){
+	for(j=0;j<NBox;j++){
+	  qini[i][j]=q2dag[i][j][Ns[2]-1];
+	  q1dag[i][j][0]=q2dag[i][j][Ns[2]-1];
+	}
       }
+      ADI(1,-1);
+      for(i=0;i<NBox;i++){
+	for(j=0;j<NBox;j++){
+	  qini[i][j]=q1dag[i][j][Ns[1]-1];
+	  q0dag[i][j][0]=q1dag[i][j][Ns[1]-1];
+	}
+      }
+      ADI(0,-1);
     }
-    ADI(0,-1);
   }else if(species==1){// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DE Diblock copolymer
     // Solving forward________________________________
     for(i=0;i<NBox;i++){
@@ -117,6 +133,7 @@ void solveDiffusionEquation(int species){
   Q_ABC*=((2.0*Pi)/Volume);
   Q_DE*=((2.0*Pi)/Volume);    
   Q_F*=((2.0*Pi)/Volume);
+
     
   return;
   

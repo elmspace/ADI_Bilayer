@@ -14,8 +14,7 @@
 int TDI (double *c, double *b, double *a, double *d, int len) // Upper, Middle, Lower, sol/input, length
 {
     int i;
- 
-   /*Forward sweep*/
+    
     *a /= *b;
     for(i=1;i<len-1;i++)
     {
@@ -28,13 +27,11 @@ int TDI (double *c, double *b, double *a, double *d, int len) // Upper, Middle, 
         d[i] -= (d[i-1]*a[i-1]);
     d[len-1] /= b[len-1];
  
-    /*Backward sweep*/
     for(i=len-2;i>=0;i--)
     {
         d[i] -= (d[i+1]*c[i]);
         d[i] /= b[i];
     }
+
     return 0;
-    
- 
-}
+};

@@ -4,7 +4,7 @@
 void setParameters( ){
 
   // Hydrophobic/phillic interaction
-  double mol_int=0.3;
+  double mol_int=0.4;
   
   // Interaction parameters
   double xAB,xAC,xAD,xAE,xAF;
@@ -12,25 +12,34 @@ void setParameters( ){
   double xCD,xCE,xCF;
   double xDE,xDF;
   double xEF;
-  // Chain polymerization
-  double NABC_triblock, NDE_diblock, NF_homopolymer; 
-  
+ 
 
+  // Pinning condition
+  if(Pore==1){
+    pin_cond = 1.0;
+    // Setting the avrerage concentrations______
+    phiAve[0]=0.00005; // ABC Triblock
+    phiAve[1]=0.15; // DE Diblock
+    phiAve[2]=1.0-(phiAve[0]+phiAve[1]); // F Homopolymer
+  }else{
+    pin_cond = 0.0;
+    // Setting the avrerage concentrations______
+    phiAve[0]=0.00005; // ABC Triblock
+    phiAve[1]=0.3; // DE Diblock
+    phiAve[2]=1.0-(phiAve[0]+phiAve[1]); // F Homopolymer
+  }
   // Setting the chemical potentials
   mu_t=-50.0;
-  mu_h=-5.0;//-4.65937
-  mu_d=0.0;
-  // Setting the avrerage concentrations______
-  phiAve[0]=0.00005; // ABC Triblock
-  phiAve[1]=0.9999; // DE Diblock
-  phiAve[2]=1.0-(phiAve[0]+phiAve[1]); // F Homopolymer
+  mu_h=0.0;
+  mu_d=4.3;//4.43594
+  mu_ref=mu_h;
   // Setting the chain lengths________________
-  Ns[0]=50;//NA
-  Ns[1]=100;//NB
-  Ns[2]=50;//NC
-  Ns[3]=50;//ND
-  Ns[4]=50;//NE
-  Ns[5]=100;//NF
+  Ns[0]=10;//NA
+  Ns[1]=10;//NB
+  Ns[2]=10;//NC
+  Ns[3]=25;//ND
+  Ns[4]=25;//NE
+  Ns[5]=50;//NF
   NABC_triblock=(double)(Ns[0]+Ns[1]+Ns[2]);
   NDE_diblock=(double)(Ns[3]+Ns[4]);
   NF_homopolymer=(double)(Ns[5]);
@@ -46,9 +55,9 @@ void setParameters( ){
   kappa_triblock=NABC_triblock/NDE_diblock;
   ds=1.0/NDE_diblock;
   // Setting the box dimensions_______________
-  R=10.0;
-  LR=10.0;
-  LZ=10.0;
+  //R=50.0;
+  LR=13.3;
+  LZ=13.3;
   drz[0]=LR/NBox;
   drz[1]=LZ/NBox;
   // Setting individual average concentration_
