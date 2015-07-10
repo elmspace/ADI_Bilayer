@@ -9,13 +9,13 @@ using namespace std;
 
 #define Pi 3.14159
 
-#define NBox 35
+#define NBox 32
 #define ChainType 6
 #define deltaBox 0.1/NBox
 
 // Choosing the type of ensemble
-int Canonical = 1;
-int GrandCanonical = 0;
+int Canonical = 0;
+int GrandCanonical = 1;
 
 int Bilayer = 0;
 int Pore = 1;
