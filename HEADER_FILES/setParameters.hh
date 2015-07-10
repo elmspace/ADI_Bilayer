@@ -16,7 +16,7 @@ void setParameters( ){
 
   // Pinning condition
   if(Pore==1){
-    pin_cond = 1.0;
+    pin_cond = 0.0;
     // Setting the avrerage concentrations______
     phiAve[0]=0.00005; // ABC Triblock
     phiAve[1]=0.15; // DE Diblock
@@ -25,7 +25,7 @@ void setParameters( ){
     pin_cond = 0.0;
     // Setting the avrerage concentrations______
     phiAve[0]=0.00005; // ABC Triblock
-    phiAve[1]=0.3; // DE Diblock
+    phiAve[1]=0.1; // DE Diblock
     phiAve[2]=1.0-(phiAve[0]+phiAve[1]); // F Homopolymer
   }
   // Setting the chemical potentials
@@ -56,8 +56,8 @@ void setParameters( ){
   ds=1.0/NDE_diblock;
   // Setting the box dimensions_______________
   //R=50.0;
-  LR=13.3;
-  LZ=14.3;
+  LR=20.0;
+  LZ=20.0;
   drz[0]=LR/NBox;
   drz[1]=LZ/NBox;
   // Setting individual average concentration_

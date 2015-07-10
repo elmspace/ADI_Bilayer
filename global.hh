@@ -9,7 +9,7 @@ using namespace std;
 
 #define Pi 3.14159
 
-#define NBox 32
+#define NBox 35
 #define ChainType 6
 #define deltaBox 0.1/NBox
 
