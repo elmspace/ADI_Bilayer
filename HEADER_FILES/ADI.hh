@@ -1,9 +1,3 @@
-// Check the TDI algrm
-// ABA symmetry reduce ADI calculations
-
-
-
-
 double alpha(int i){
   double val;
   val=((ds)/(4.0*drz[0]*(((double)i)*drz[0]+R)))-((ds)/(2.0*drz[0]*drz[0]));
@@ -63,11 +57,13 @@ void Make_Upper(char step, int index, int chain){
   int i;
   if(step=='h'){// half step
     Mu[0]=(gamma(0)+alpha(0));
+    Mu[NBox-1]=0.0;
     for(i=1;i<NBox-1;i++){
       Mu[i]=gamma(i);
     }
   }else{// full step
     Mu[0]=(2.0*thetaHat(0));
+    Mu[NBox-1]=0.0;
     for(i=1;i<NBox-1;i++){
       Mu[i]=thetaHat(i);
     }
@@ -78,14 +74,16 @@ void Make_Upper(char step, int index, int chain){
 void Make_Lower(char step, int index, int chain){
   int i;
   if(step=='h'){// half step (the index assignment here looks a little weird, it is right, look at the theory derivation)
-    Ml[NBox-2]=(gamma(NBox-1)+alpha(NBox-1));
-    for(i=0;i<NBox-2;i++){
-      Ml[i]=alpha(i+1);
+    Ml[NBox-1]=(gamma(NBox-1)+alpha(NBox-1));
+    Ml[0]=0.0;
+    for(i=1;i<NBox-1;i++){
+      Ml[i]=alpha(i);
     }
   }else{// full step
-    Ml[NBox-2]=(2.0*thetaHat(0));
-    for(i=0;i<NBox-2;i++){
-      Ml[i]=thetaHat(i+1);
+    Ml[NBox-1]=(2.0*thetaHat(0));
+    Ml[0]=0.0;
+    for(i=1;i<NBox-1;i++){
+      Ml[i]=thetaHat(i);
     }
   }
   return;
@@ -308,7 +306,7 @@ void ADI(int chain, int direction){
       Make_Middle('h',j,chain);
       Make_Lower('h',j,chain);
       Make_Right_Vector('h',j,chain);
-      TDI(Mu,Mm,Ml,Rvector,NBox);
+      TDI(Ml,Mm,Mu,Rvector,NBox);
       Make_q('h',j,s,chain,direction);
     }
 
@@ -319,7 +317,7 @@ void ADI(int chain, int direction){
       Make_Middle('f',i,chain);
       Make_Lower('f',i,chain);
       Make_Right_Vector('f',i,chain);
-      TDI(Mu,Mm,Ml,Rvector,NBox);
+      TDI(Ml,Mm,Mu,Rvector,NBox);
       Make_q('f',i,s,chain,direction);
     }
 

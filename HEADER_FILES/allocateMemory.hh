@@ -17,8 +17,8 @@ void allocateMemory(int index){
     chiMatrix=create_2d_double_array(ChainType,ChainType,"chiMatrix");
     qini=create_2d_double_array(NBox,NBox,"qini");
     qmid=create_2d_double_array(NBox,NBox,"qmid");
-    Mu=create_1d_double_array(NBox-1,"Mu");
-    Ml=create_1d_double_array(NBox-1,"Ml");
+    Mu=create_1d_double_array(NBox,"Mu");
+    Ml=create_1d_double_array(NBox,"Ml");
     Mm=create_1d_double_array(NBox,"Mm");
     Rvector=create_1d_double_array(NBox,"Rvector");
     dum_func1=create_2d_double_array(NBox,NBox,"dum_func1");

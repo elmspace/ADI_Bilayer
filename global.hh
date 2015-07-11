@@ -9,7 +9,7 @@ using namespace std;
 
 #define Pi 3.14159
 
-#define NBox 32
+#define NBox 50
 #define ChainType 6
 #define deltaBox 0.1/NBox
 
@@ -17,8 +17,8 @@ using namespace std;
 int Canonical = 0;
 int GrandCanonical = 1;
 
-int Bilayer = 0;
-int Pore = 1;
+int Bilayer = 1;
+int Pore = 0;
 
 double pin_cond;
   
@@ -52,7 +52,7 @@ double Volume, Area;
 
 // Control parameters
 double delta_W, delta_Phi;
-double precision=1.0e-3;
+double precision=1.0e-2;
 
 double LR, LZ;
 double ***w, ***phi, *phiAve, *p_ave, *w_ave;

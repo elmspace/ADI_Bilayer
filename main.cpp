@@ -7,6 +7,7 @@ Written By:   Ashkan Dehghan [McMaster University]
 #include "./HEADER_FILES/integrationTrapezoidal.hh"
 #include "./HEADER_FILES/setParameters.hh"
 #include "./HEADER_FILES/setOmega.hh"
+#include "./HEADER_FILES/setOmegaManual.hh"
 #include "./HEADER_FILES/TDI.hh"
 #include "./HEADER_FILES/ADI.hh"
 #include "./HEADER_FILES/solveDiffusionEquation.hh"
@@ -20,14 +21,15 @@ Written By:   Ashkan Dehghan [McMaster University]
 #include "./HEADER_FILES/boxMinimize.hh"
 #include "./MODS/Mod1.hh"
 #include "./MODS/Mod_basic.hh"
+#include "./MODS/Mod_Test_1.hh"
 
 using namespace std;
 
 int main(){
   
-  
   //Mod_basic();
-  Mod1();
+  Mod_Test_1();
+  //Mod1();
   
   return 0;
 }

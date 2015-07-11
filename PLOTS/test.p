@@ -16,6 +16,7 @@ set pointsize 2
 a=4.3
 b=4.3**3 * 3.14 * 2.0
 
-plot path."test2.dat" using 1:2 w lp lc 1 pt 6
+plot path."fE_vs_R_Per.dat" using 1:($2/$4) w lp lc 1 pt 6,\
+path."fE_vs_R_Par.dat" using 1:($2/$4) w lp lc 3 pt 4
 pause(-1)
 
