@@ -4,7 +4,7 @@
 void setParameters( ){
 
   // Hydrophobic/phillic interaction
-  double mol_int=0.2;
+  double mol_int=0.1;
   
   // Interaction parameters
   double xAB,xAC,xAD,xAE,xAF;
@@ -30,19 +30,19 @@ void setParameters( ){
   }
   // Setting the chemical potentials
   mu_t=-50.0;
-  mu_h=0.0;
-  mu_d=4.6;
-  mu_ref=mu_h;
+  mu_h=-50.0;
+  mu_d=0.0;
+  mu_ref=mu_d;
   // Setting the chain lengths________________
   Ns[0]=10;//NA
   Ns[1]=10;//NB
   Ns[2]=10;//NC
-  Ns[3]=50;//ND
-  Ns[4]=50;//NE
+  Ns[3]=100;//ND
+  Ns[4]=100;//NE
   Ns[5]=50;//NF
-  NABC_triblock=(double)(Ns[0]+Ns[1]+Ns[2]);
-  NDE_diblock=(double)(Ns[3]+Ns[4]);
-  NF_homopolymer=(double)(Ns[5]);
+  NABC_triblock=(double)(Ns[0]+Ns[1]+Ns[2]-3);
+  NDE_diblock=(double)(Ns[3]+Ns[4]-2);
+  NF_homopolymer=(double)(Ns[5]-1);
   f[0]=(double)Ns[0]/NABC_triblock;
   f[1]=(double)Ns[1]/NABC_triblock;
   f[2]=(double)Ns[2]/NABC_triblock;
@@ -53,19 +53,19 @@ void setParameters( ){
   kappa_homopolymer=NF_homopolymer/NDE_diblock;
   kappa_diblock=NDE_diblock/NDE_diblock;
   kappa_triblock=NABC_triblock/NDE_diblock;
-  ds=1.0/NDE_diblock;
+  ds=1.0/(NDE_diblock);
   // Setting the box dimensions_______________
-  //R=50.0;
-  LR=4.0;
-  LZ=4.0;
-  drz[0]=LR/NBox;
-  drz[1]=LZ/NBox;
+  R=50000.0;
+  LR=4.1;
+  LZ=4.1;
+  drz[0]=LR/(NBox-1);
+  drz[1]=LZ/(NBox-1);
   // Setting individual average concentration_
-  p_ave[0]=phiAve[0]*(double)(Ns[0]/NABC_triblock); // A
-  p_ave[1]=phiAve[0]*(double)(Ns[1]/NABC_triblock); // B
-  p_ave[2]=phiAve[0]*(double)(Ns[2]/NABC_triblock); // C
-  p_ave[3]=phiAve[1]*(double)(Ns[3]/NDE_diblock); // D
-  p_ave[4]=phiAve[1]*(double)(Ns[4]/NDE_diblock); // E
+  p_ave[0]=phiAve[0]*((double)Ns[0]/NABC_triblock); // A
+  p_ave[1]=phiAve[0]*((double)Ns[1]/NABC_triblock); // B
+  p_ave[2]=phiAve[0]*((double)Ns[2]/NABC_triblock); // C
+  p_ave[3]=phiAve[1]*((double)Ns[3]/NDE_diblock); // D
+  p_ave[4]=phiAve[1]*((double)Ns[4]/NDE_diblock); // E
   p_ave[5]=phiAve[2]; // F
   // Setting the interactions_________________
   xAB=0.0;//mol_int*NDE_diblock;

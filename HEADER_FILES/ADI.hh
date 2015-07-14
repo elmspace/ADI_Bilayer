@@ -324,21 +324,6 @@ void ADI(int chain, int direction){
     Make_q('j',0,s,chain,direction);
 
   }
-
-  /*
-  for(s=0;s<=Ns[chain];s++){
-    if(direction==1){
-      if(chain==5){std::cout<<"s= "<<s<<"  direction= "<<direction<<" chain="<<chain<<" q="<<q3[NBox/2][NBox/2][s]<<std::endl;}
-      //if(chain==4){std::cout<<"s= "<<s<<"  direction= "<<direction<<" chain="<<chain<<" q="<<q4[NBox/2][NBox/2][s]<<std::endl;}
-    }
-    if(direction==-1){
-      if(chain==5){std::cout<<"s= "<<s<<"  direction= "<<direction<<" chain="<<chain<<" q="<<q3dag[NBox/2][NBox/2][s]<<std::endl;}
-      // if(chain==4){std::cout<<"s= "<<s<<"  direction= "<<direction<<" chain="<<chain<<" q="<<q4dag[NBox/2][NBox/2][s]<<std::endl;}
-      
-    }
-  }
-  std::cin>>i;
-  */
   
   return;
 };

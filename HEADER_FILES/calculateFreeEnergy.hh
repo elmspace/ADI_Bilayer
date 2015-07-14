@@ -11,8 +11,9 @@ void calculateFreeEnergy( ){
       dum_func1[i][j]=1.0;
     }
   }
-  Volume=2.0*Pi*integrationTrapezoidal(dum_func1,0,(NBox-1),0,(NBox-1),drz[0],drz[1],'c');
-  Volume=Pi*(drz[1]*(NBox-1))*(((R+(drz[0]*(NBox-1)))*(R+(drz[0]*(NBox-1))))-(R*R));
+  Volume=2.0*Pi*integrationTrapezoidal(dum_func1,0,(NBox-1),0,(NBox-1),drz[0],drz[1],'c');  
+  //Volume=Pi*(drz[1]*(NBox-1))*(((R+(drz[0]*(NBox-1)))*(R+(drz[0]*(NBox-1))))-(R*R));
+
   if(Pore==1){Area=Pi*(R+(drz[0]*NBox/2.0))*(R+(drz[0]*NBox/2.0))-Pi*R*R;}
   if(Bilayer==1){Area=Pi*(R+(drz[0]*NBox))*(R+(drz[0]*NBox))-Pi*R*R;}
   
@@ -65,10 +66,10 @@ void calculateFreeEnergy( ){
     Omega_fE*=((2.0*Pi)/Volume);
     Interaction_fE*=((2.0*Pi)/Volume);
     
-    //totalFreeEnergy=Interaction_fE-Omega_fE-Entropy_fE-Homogenous_fE;
-    totalFreeEnergy=Interaction_fE-Omega_fE-Entropy_fE;
+    totalFreeEnergy=Interaction_fE-Omega_fE-Entropy_fE-Homogenous_fE;
+    //totalFreeEnergy=Interaction_fE-Omega_fE-Entropy_fE;
     
-    //std::cout<<iter<<" "<<totalFreeEnergy<<"   "<<delta_W<<"  Phi_tri_ave="<<(p_ave[0]+p_ave[1]+p_ave[2])<<"  Phi_di_ave="<<(p_ave[3]+p_ave[4])<<"  Phi_hom_ave="<<p_ave[5]<<std::endl;
+    std::cout<<iter<<" "<<totalFreeEnergy<<"   "<<delta_W<<"  Phi_tri_ave="<<(p_ave[0]+p_ave[1]+p_ave[2])<<"  Phi_di_ave="<<(p_ave[3]+p_ave[4])<<"  Phi_hom_ave="<<p_ave[5]<<std::endl;
     //std::cout<<iter<<"   R= "<<(R+(drz[0]*NBox/2.0))<<"     F= "<<(totalFreeEnergy*Volume)<<"     dW= "<<delta_W<<std::endl;
     
   

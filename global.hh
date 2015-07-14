@@ -9,7 +9,7 @@ using namespace std;
 
 #define Pi 3.14159
 
-#define NBox 50
+#define NBox 64
 #define ChainType 6
 #define deltaBox 0.1/NBox
 
@@ -52,7 +52,7 @@ double Volume, Area;
 
 // Control parameters
 double delta_W, delta_Phi;
-double precision=1.0e-2;
+double precision=1.0e-3;
 
 double LR, LZ;
 double ***w, ***phi, *phiAve, *p_ave, *w_ave;
