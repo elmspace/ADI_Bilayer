@@ -19,8 +19,8 @@ void Mod_Test_1( ){
     calculateFreeEnergy();
     outputFile2<<(R+(drz[0]*NBox/2.0))<<" "<<(totalFreeEnergy*Volume)<<" "<<Homogenous_fE*Volume<<" "<<Volume<<" "<<Area<<std::endl;
     std::cout<<(R+(drz[0]*NBox/2.0))<<" "<<(totalFreeEnergy*Volume)<<" "<<Homogenous_fE*Volume<<" "<<Volume<<" "<<Area<<std::endl;
-    R+=200.0;
-  }while(R<5000.0);
+    R+=5.0;
+  }while(R<100.0);
   outputFile2.close();
   allocateMemory(-1); // Deallocating memory
 
@@ -46,8 +46,8 @@ void Mod_Test_1( ){
     calculateFreeEnergy();
     outputFile1<<(R+(drz[0]*NBox/2.0))<<" "<<(totalFreeEnergy*Volume)<<" "<<Homogenous_fE*Volume<<" "<<Volume<<" "<<Area<<std::endl;
     std::cout<<(R+(drz[0]*NBox/2.0))<<" "<<(totalFreeEnergy*Volume)<<" "<<Homogenous_fE*Volume<<" "<<Volume<<" "<<Area<<std::endl;
-    R+=200.0;
-  }while(R<5000.0);
+    R+=5.0;
+  }while(R<100.0);
   outputFile1.close();
   allocateMemory(-1); // Deallocating memory
 
