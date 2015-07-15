@@ -14,9 +14,9 @@ void setOmega( ){
   if(NBox==32){
     if(Bilayer==1){infile.open("./OMEGA/READ/phi_bilayer_32_32.dat");}
     if(Pore==1){infile.open("./OMEGA/READ/phi_pore_32_32.dat");}
-  }else if(NBox==50){
-    if(Bilayer==1){infile.open("./OMEGA/READ/omega_bilayer_50_50.dat");}
-    if(Pore==1){infile.open("./OMEGA/READ/omega_pore_50_50.dat");}
+  }else if(NBox==64){
+    if(Bilayer==1){infile.open("./OMEGA/READ/phi_bilayer_64_64.dat");}
+    if(Pore==1){infile.open("./OMEGA/READ/phi_pore_64_64.dat");}
   }
   for(i=0;i<NBox;i++){
     for(j=0;j<NBox;j++){
@@ -24,49 +24,7 @@ void setOmega( ){
     }
   }
   infile.close();
-  // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  
-
-
-  /*
-  if(Bilayer==1){
-    for(i=0;i<NBox;i++){
-      for(j=0;j<NBox;j++){
-	phi[0][i][j]=0.0;
-	phi[1][i][j]=0.0;
-	phi[2][i][j]=0.0;
-	phi[3][i][j]=0.0;
-	phi[4][i][j]=0.0;
-	phi[5][i][j]=1.0;
-      }
-    }
-    for(i=0;i<NBox;i++){
-      for(j=((NBox/2)-3);j<((NBox/2)+3);j++){
-	phi[4][i][j]=1.0;
-	phi[5][i][j]=0.0;
-      }
-    }
-  }else if(Pore==1){
-    for(i=0;i<NBox;i++){
-      for(j=0;j<NBox;j++){
-	phi[0][i][j]=0.0;
-	phi[1][i][j]=0.0;
-	phi[2][i][j]=0.0;
-	phi[3][i][j]=0.0;
-	phi[4][i][j]=0.0;
-	phi[5][i][j]=1.0;
-      }
-    }
-    for(i=NBox/2;i<NBox;i++){
-      for(j=((NBox/2)-3);j<((NBox/2)+3);j++){
-	phi[4][i][j]=1.0;
-	phi[5][i][j]=0.0;
-      }
-    }
-  }
-  */
-
-  
+  // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
   // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   for(i=0;i<NBox;i++){
     for(j=0;j<NBox;j++){

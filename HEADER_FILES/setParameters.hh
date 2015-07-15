@@ -4,7 +4,7 @@
 void setParameters( ){
 
   // Hydrophobic/phillic interaction
-  double mol_int=0.1;
+  double mol_int=0.3;
   
   // Interaction parameters
   double xAB,xAC,xAD,xAE,xAF;
@@ -16,7 +16,7 @@ void setParameters( ){
 
   // Pinning condition
   if(Pore==1){
-    pin_cond = 0.0;
+    pin_cond = 1.0;
     // Setting the avrerage concentrations______
     phiAve[0]=0.00005; // ABC Triblock
     phiAve[1]=0.15; // DE Diblock
@@ -30,16 +30,16 @@ void setParameters( ){
   }
   // Setting the chemical potentials
   mu_t=-50.0;
-  mu_h=-50.0;
-  mu_d=0.0;
-  mu_ref=mu_d;
+  mu_h=0.0;
+  mu_d=4.6;
+  mu_ref=mu_h;
   // Setting the chain lengths________________
   Ns[0]=10;//NA
   Ns[1]=10;//NB
   Ns[2]=10;//NC
-  Ns[3]=100;//ND
-  Ns[4]=100;//NE
-  Ns[5]=50;//NF
+  Ns[3]=50;//ND
+  Ns[4]=50;//NE
+  Ns[5]=100;//NF
   NABC_triblock=(double)(Ns[0]+Ns[1]+Ns[2]-3);
   NDE_diblock=(double)(Ns[3]+Ns[4]-2);
   NF_homopolymer=(double)(Ns[5]-1);
@@ -55,9 +55,9 @@ void setParameters( ){
   kappa_triblock=NABC_triblock/NDE_diblock;
   ds=1.0/(NDE_diblock);
   // Setting the box dimensions_______________
-  R=50000.0;
-  LR=4.1;
-  LZ=4.1;
+  R=100.0;
+  LR=15.0;
+  LZ=15.0;
   drz[0]=LR/(NBox-1);
   drz[1]=LZ/(NBox-1);
   // Setting individual average concentration_

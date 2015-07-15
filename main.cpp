@@ -27,9 +27,9 @@ using namespace std;
 
 int main(){
   
-  Mod_basic();
+  //Mod_basic();
   //Mod_Test_1();
-  //Mod1();
+  Mod1();
   
   return 0;
 }

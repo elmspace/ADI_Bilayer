@@ -17,8 +17,8 @@ using namespace std;
 int Canonical = 0;
 int GrandCanonical = 1;
 
-int Bilayer = 1;
-int Pore = 0;
+int Bilayer = 0;
+int Pore = 1;
 
 double pin_cond;
   
@@ -52,7 +52,7 @@ double Volume, Area;
 
 // Control parameters
 double delta_W, delta_Phi;
-double precision=1.0e-3;
+double precision=1.0e-2;
 
 double LR, LZ;
 double ***w, ***phi, *phiAve, *p_ave, *w_ave;

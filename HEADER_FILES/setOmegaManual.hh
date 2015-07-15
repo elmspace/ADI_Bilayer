@@ -41,6 +41,21 @@ void setOmegaManual(int phase){
 	phi[5][i][j]=0.0;
       }
     }
+  }else if(phase==3){ // Bilayer
+
+    for(i=0;i<NBox;i++){
+      for(j=0;j<NBox;j++){
+	phi[5][i][j]=1.0;
+      }
+    }
+    for(i=(NBox/2);i<NBox;i++){
+      for(j=((NBox/2)-3);j<((NBox/2)+3);j++){
+	phi[4][i][j]=1.0;
+	phi[5][i][j]=0.0;
+      }
+    }
+
+    
   }
 
 
