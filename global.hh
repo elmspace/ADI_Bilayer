@@ -62,8 +62,6 @@ double ds, *drz;
 double *f;
 int *Ns;
 
-
-
 // Propagators
 double ***q0, ***q0dag;
 double ***q1, ***q1dag;

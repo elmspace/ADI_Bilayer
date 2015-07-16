@@ -130,9 +130,12 @@ void solveDiffusionEquation(int species){
   Q_ABC=integrationTrapezoidal(dum_func1,0,(NBox-1),0,(NBox-1),drz[0],drz[1],'c');
   Q_DE=integrationTrapezoidal(dum_func2,0,(NBox-1),0,(NBox-1),drz[0],drz[1],'c');
   Q_F=integrationTrapezoidal(dum_func3,0,(NBox-1),0,(NBox-1),drz[0],drz[1],'c');
-  Q_ABC*=((2.0*Pi)/Volume);
-  Q_DE*=((2.0*Pi)/Volume);    
-  Q_F*=((2.0*Pi)/Volume);
+  //Q_ABC*=((2.0*Pi)/Volume);
+  //Q_DE*=((2.0*Pi)/Volume);    
+  //Q_F*=((2.0*Pi)/Volume);
+  Q_ABC*=(2.0*Pi);
+  Q_DE*=(2.0*Pi);    
+  Q_F*=(2.0*Pi);
 
     
   return;

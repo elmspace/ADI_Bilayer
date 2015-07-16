@@ -7,6 +7,7 @@ void Mod_basic( ){
   setParameters();
   setOmega();
   allocateMemory(2); // Allocate the q and qdag
+  mu_d=bisectionSolver(mu_d);
   calculateFreeEnergy();
   allocateMemory(-1); // Deallocating memory
 
