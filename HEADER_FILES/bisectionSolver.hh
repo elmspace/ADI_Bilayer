@@ -7,7 +7,7 @@ double bisectionSolver (double &mu){
 
   int pass;
   double a,b,c,fa,fb,fc;
-  double del_mu=0.1, conv=1.0e-3;
+  double del_mu=0.1, conv=1.0e-5;
 
   a=mu;
   calculateFreeEnergy();

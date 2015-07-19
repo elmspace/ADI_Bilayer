@@ -22,11 +22,13 @@ Written By:   Ashkan Dehghan [McMaster University]
 #include "./MODS/Mod1.hh"
 #include "./MODS/Mod_basic.hh"
 #include "./MODS/Mod_Test_1.hh"
+#include "./MODS/Mod_mu_scan.hh"
 
 using namespace std;
 
 int main(){
   
+  //Mod_mu_scan();
   //Mod_basic();
   //Mod_Test_1();
   Mod1();

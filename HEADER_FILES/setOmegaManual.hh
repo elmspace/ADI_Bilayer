@@ -1,7 +1,4 @@
-/*
-
-*/
-void setOmegaManual(int phase){
+void setOmegaManual(int phase){   // 1=LamPar 2=LamPer 3=Bilayer 4=Pore 5=Disk
 
   int i, j, chain,ii,jj;
 
@@ -42,20 +39,41 @@ void setOmegaManual(int phase){
       }
     }
   }else if(phase==3){ // Bilayer
-
+    for(i=0;i<NBox;i++){
+      for(j=0;j<NBox;j++){
+	phi[5][i][j]=1.0;
+      }
+    }
+    for(i=0;i<NBox;i++){
+      for(j=((NBox/2)-1);j<((NBox/2)+2);j++){
+	phi[4][i][j]=1.0;
+	phi[5][i][j]=0.0;
+      }
+    }
+  }else if (phase==4){ // Pore
     for(i=0;i<NBox;i++){
       for(j=0;j<NBox;j++){
 	phi[5][i][j]=1.0;
       }
     }
     for(i=(NBox/2);i<NBox;i++){
-      for(j=((NBox/2)-3);j<((NBox/2)+3);j++){
+      for(j=((NBox/2)-1);j<((NBox/2)+2);j++){
 	phi[4][i][j]=1.0;
 	phi[5][i][j]=0.0;
       }
     }
-
-    
+  }else if (phase==5){ // Disk
+    for(i=0;i<NBox;i++){
+      for(j=0;j<NBox;j++){
+	phi[5][i][j]=1.0;
+      }
+    }
+    for(i=0;i<(NBox/2);i++){
+      for(j=((NBox/2)-1);j<((NBox/2)+2);j++){
+	phi[4][i][j]=1.0;
+	phi[5][i][j]=0.0;
+      }
+    }
   }
 
 

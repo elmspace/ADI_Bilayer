@@ -17,7 +17,9 @@ void saveData( ){
   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   // Writting to data files
   std::ofstream outputFile2("./PHI/phi_z.dat");
-  I=NBox-1;
+  if(Pore==1){I=NBox-1;}
+  if(Disk==1){I=0;}
+  if(Bilayer==1){I=NBox/2;}
   for(j=0;j<NBox;j++){
     outputFile2 <<j*drz[1]<<" "<<phi[0][I][j]<<" "<<phi[1][I][j]<<" "<<phi[2][I][j]<<" "<<phi[3][I][j]<<" "<<phi[4][I][j]<<" "<<phi[5][I][j]<<std::endl;
   }

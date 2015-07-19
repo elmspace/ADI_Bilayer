@@ -18,7 +18,8 @@ int Canonical = 0;
 int GrandCanonical = 1;
 
 int Bilayer = 0;
-int Pore = 1;
+int Pore = 0;
+int Disk = 1;
 
 double pin_cond;
   

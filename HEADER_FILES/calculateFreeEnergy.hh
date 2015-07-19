@@ -16,6 +16,7 @@ void calculateFreeEnergy( ){
 
   // Full area from center to right efge of box
   if(Pore==1){Area=Pi*(R+(drz[0]*NBox/2.0))*(R+(drz[0]*NBox/2.0));}
+  if(Disk==1){Area=Pi*(R+(drz[0]*NBox/2.0))*(R+(drz[0]*NBox/2.0));}
   if(Bilayer==1){Area=Pi*(R+(drz[0]*NBox))*(R+(drz[0]*NBox));}
   
 
@@ -69,11 +70,11 @@ void calculateFreeEnergy( ){
     Omega_fE*=(2.0*Pi);
     Interaction_fE*=(2.0*Pi);
     
-    //totalFreeEnergy=Interaction_fE-Omega_fE-Entropy_fE-Homogenous_fE;
+    //totalFreeEnergy=Interaction_fE-Omega_fE-Entropy_fE-(Homogenous_fE*Volume);
     totalFreeEnergy=Interaction_fE-Omega_fE-Entropy_fE;
     
     //std::cout<<iter<<" "<<totalFreeEnergy<<"   "<<delta_W<<"  Phi_tri_ave="<<(p_ave[0]+p_ave[1]+p_ave[2])<<"  Phi_di_ave="<<(p_ave[3]+p_ave[4])<<"  Phi_hom_ave="<<p_ave[5]<<std::endl;
-    //std::cout<<iter<<"   R= "<<(R+(drz[0]*NBox/2.0))<<"     F= "<<(totalFreeEnergy*Volume)<<"     dW= "<<delta_W<<std::endl;
+    std::cout<<iter<<" "<<delta_W<<" "<<(totalFreeEnergy/Volume)-Homogenous_fE<<" "<<(p_ave[0]+p_ave[1]+p_ave[2])<<" "<<(p_ave[3]+p_ave[4])<<" "<<p_ave[5]<<std::endl;
     
   
     saveData();

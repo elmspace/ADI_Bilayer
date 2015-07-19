@@ -14,9 +14,11 @@ void setOmega( ){
   if(NBox==32){
     if(Bilayer==1){infile.open("./OMEGA/READ/phi_bilayer_32_32.dat");}
     if(Pore==1){infile.open("./OMEGA/READ/phi_pore_32_32.dat");}
+    if(Disk==1){infile.open("./OMEGA/READ/phi_disk_32_32.dat");}
   }else if(NBox==64){
     if(Bilayer==1){infile.open("./OMEGA/READ/phi_bilayer_64_64.dat");}
     if(Pore==1){infile.open("./OMEGA/READ/phi_pore_64_64.dat");}
+    if(Pore==1){infile.open("./OMEGA/READ/phi_disk_64_64.dat");}
   }
   for(i=0;i<NBox;i++){
     for(j=0;j<NBox;j++){
