@@ -20,10 +20,10 @@ Written By:   Ashkan Dehghan [McMaster University]
 #include "./HEADER_FILES/calculateFreeEnergy.hh"
 #include "./HEADER_FILES/bisectionSolver.hh"
 #include "./HEADER_FILES/boxMinimize.hh"
+#include "./MODS/Mod0.hh"
 #include "./MODS/Mod1.hh"
-#include "./MODS/Mod_basic.hh"
+#include "./MODS/Mod2.hh"
 #include "./MODS/Mod_Test_1.hh"
-#include "./MODS/Mod_mu_scan.hh"
 
 using namespace std;
 
@@ -31,17 +31,28 @@ int main(int argc, char* argv[]){
 
   // The arguments read in are in order:
   // 1-> B=Bilayer P=Pore D=Disk
-  // 2-> 
-  // 3-> 
-  // 4-> 
+  // Mod number
 
   inputArguments(argc,argv);
-  
-  //Mod_mu_scan();
-  //Mod_basic();
-  //Mod_Test_1();
-  Mod1();
+
+  if(atoi(argv[2])==0){Mod0();}
+  else if(atoi(argv[2])==1){Mod1();}
+  else if(atoi(argv[2])==2){Mod2();}
+  else{
+    std::cout<<"The Mod you have chosen does not exists, please look at main.cpp"<<std::endl;
+    exit(1);
+  }
   
   return 0;
 }
+
+/* Mod descriptions
+
+   Mod0 -> In Mod0, we calculate the free energy for a give set of parameters. Results are printed and not saved, this mode is mainly for testing. 
+
+   Mod1 -> In Mod1, we calculate the Free energy as a function of radius for a range of chemical potentials. The result is saved in RESULTS/Mod1_Results.dat
+
+   Mod2 -> In Mod2, we calculate the Free energy as a function of chemical potential. The result is saved in RESULTS/Mod2_Results.dat
+
+*/
 

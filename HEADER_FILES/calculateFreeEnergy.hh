@@ -12,7 +12,6 @@ void calculateFreeEnergy( ){
     }
   }
   Volume=2.0*Pi*integrationTrapezoidal(dum_func1,0,(NBox-1),0,(NBox-1),drz[0],drz[1],'c');  
-  //Volume=Pi*(drz[1]*(NBox-1))*(((R+(drz[0]*(NBox-1)))*(R+(drz[0]*(NBox-1))))-(R*R));
 
   // Full area from center to right efge of box
   if(Pore==1){Area=Pi*(R+(drz[0]*NBox/2.0))*(R+(drz[0]*NBox/2.0));}
@@ -25,12 +24,14 @@ void calculateFreeEnergy( ){
   act_t=exp(kappa_triblock*(mu_t-mu_ref));
   act_d=exp(kappa_diblock*(mu_d-mu_ref));
   
-  // Homogenous free energy
-  Homogenous_fE=calculatedHomogenousEnergy();
+  // Homogenous free energy (not per volume)
+  Homogenous_fE=calculatedHomogenousEnergy()*Volume;
 
   iter=0;
   do{
- 
+    
+    iter_global=iter;
+    
     // Solving diffusion equations________________
     solveDiffusionEquation(0);
     solveDiffusionEquation(1);
@@ -65,44 +66,18 @@ void calculateFreeEnergy( ){
     Interaction_fE=integrationTrapezoidal(dum_func1,0,(NBox-1),0,(NBox-1),drz[0],drz[1],'c')/2.0;// 2 is for double counting
     Omega_fE=integrationTrapezoidal(dum_func2,0,(NBox-1),0,(NBox-1),drz[0],drz[1],'c');
         
-    //Omega_fE*=((2.0*Pi)/Volume);
-    //Interaction_fE*=((2.0*Pi)/Volume);
     Omega_fE*=(2.0*Pi);
     Interaction_fE*=(2.0*Pi);
     
-    //totalFreeEnergy=Interaction_fE-Omega_fE-Entropy_fE-(Homogenous_fE*Volume);
     totalFreeEnergy=Interaction_fE-Omega_fE-Entropy_fE;
-    
-    //std::cout<<iter<<" "<<totalFreeEnergy<<"   "<<delta_W<<"  Phi_tri_ave="<<(p_ave[0]+p_ave[1]+p_ave[2])<<"  Phi_di_ave="<<(p_ave[3]+p_ave[4])<<"  Phi_hom_ave="<<p_ave[5]<<std::endl;
-    //std::cout<<iter<<" "<<delta_W<<" "<<(totalFreeEnergy/Volume)-Homogenous_fE<<" "<<(p_ave[0]+p_ave[1]+p_ave[2])<<" "<<(p_ave[3]+p_ave[4])<<" "<<p_ave[5]<<std::endl;
-    
-  
+
+    if(print_fE==1){
+      std::cout<<"iter="<<iter<<"  "<<"fE="<<totalFreeEnergy<<"  "<<"fE_Hom="<<Homogenous_fE<<"  "<<"delW="<<delta_W<<"  "<<"P_t_ave="<<(p_ave[0]+p_ave[1]+p_ave[2])<<"  "<<"P_d_ave="<<(p_ave[3]+p_ave[4])<<"  "<<"P_h_ave="<<p_ave[5]<<std::endl;
+    }
+      
     saveData();
     iter++;
   }while((delta_W>precision)||(iter<500));
 
   
 };
-
-
-
-
-
-
-
-
-
-
-
-    /*
-    if(iter>600 && iter<800){
-      pin_cond = 1.0;
-      for(i=0;i<NBox/2;i++){
-	for(j=0;j<NBox;j++){
-	  phi[3][i][j]=0.0;
-	  phi[4][i][j]=0.0;
-	  phi[5][i][j]=1.0;
-	}
-      }
-    }
-    */

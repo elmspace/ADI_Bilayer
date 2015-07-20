@@ -10,6 +10,6 @@ void inputArguments(int numb_of_args, char* arg_input[]){
     std::cout<<"The phase you have chosen does not exists!"<<std::endl;
     exit(1);
   }
-  mu_d=atof(arg_input[2]);
+ 
 
 };

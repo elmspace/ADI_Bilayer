@@ -21,11 +21,14 @@ int Bilayer = 0;
 int Pore = 0;
 int Disk = 0;
 
+int print_fE = 0;
+
 double pin_cond;
+int iter_global, I_pin, J_pin;
   
 // Simple mixing parameters 
-double epsilon_w=0.01;
-double epsilon_phi=0.01;
+double epsilon_w=0.05;
+double epsilon_phi=0.05;
 
 // Relative chain lengths
 double kappa_homopolymer;
@@ -53,7 +56,7 @@ double Volume, Area;
 
 // Control parameters
 double delta_W, delta_Phi;
-double precision=1.0e-2;
+double precision=1.0e-3;
 
 double LR, LZ;
 double ***w, ***phi, *phiAve, *p_ave, *w_ave;

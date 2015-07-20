@@ -1,8 +1,5 @@
 /*
   In this function, we will initialize the parameters we will be using in the code
-
-For NBox=32 fA=0.4 mu_d=4.657
-
 */
 void setParameters( ){
 
@@ -34,7 +31,7 @@ void setParameters( ){
   // Setting the chemical potentials
   mu_t=-50.0;
   mu_h=0.0;
-  //mu_d=4.9; // 4.5625 fE=0.0
+  mu_d=4.4;
   mu_ref=mu_h;
   // Setting the chain lengths________________
   Ns[0]=10;//NA
@@ -58,7 +55,7 @@ void setParameters( ){
   kappa_triblock=NABC_triblock/NDE_diblock;
   ds=1.0/(NDE_diblock);
   // Setting the box dimensions_______________
-  R=1.0;
+  R=0.01;
   LR=15.0;
   LZ=15.0;
   drz[0]=LR/(NBox-1);
@@ -71,23 +68,21 @@ void setParameters( ){
   p_ave[4]=phiAve[1]*((double)Ns[4]/NDE_diblock); // E
   p_ave[5]=phiAve[2]; // F
   // Setting the interactions_________________
-  xAB=0.0;//mol_int*NDE_diblock;
+  xAB=mol_int*NDE_diblock;
   xAC=0.0;
   xAD=0.0;
-  xAE=0.0;//mol_int*NDE_diblock;
+  xAE=mol_int*NDE_diblock;
   xAF=0.0;
-  xBC=0.0;//mol_int*NDE_diblock;
-  xBD=0.0;//mol_int*NDE_diblock;
+  xBC=mol_int*NDE_diblock;
+  xBD=mol_int*NDE_diblock;
   xBE=0.0;
-  xBF=0.0;//mol_int*NDE_diblock;
+  xBF=mol_int*NDE_diblock;
   xCD=0.0;
-  xCE=0.0;//mol_int*NDE_diblock;
+  xCE=mol_int*NDE_diblock;
   xCF=0.0;
   xDE=mol_int*NDE_diblock;
   xDF=0.0;
   xEF=mol_int*NDE_diblock;
-
-  
   // Setting the ChiMatrix ___________________
   chiMatrix[0][0]=0.0;
   chiMatrix[0][1]=xAB;
