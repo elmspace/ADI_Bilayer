@@ -9,7 +9,7 @@ using namespace std;
 
 #define Pi 3.14159
 
-#define NBox 64
+#define NBox 32
 #define ChainType 6
 #define deltaBox 0.1/NBox
 
@@ -19,7 +19,7 @@ int GrandCanonical = 1;
 
 int Bilayer = 0;
 int Pore = 0;
-int Disk = 1;
+int Disk = 0;
 
 double pin_cond;
   
@@ -46,7 +46,7 @@ double act_h, act_t, act_d, mu_ref;
 double NABC_triblock, NDE_diblock, NF_homopolymer;
 
 // Distance from center of cylinder
-double R;
+double R, R_tip=0.0;
 
 // Volume of the system
 double Volume, Area;

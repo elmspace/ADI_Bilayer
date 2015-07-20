@@ -10,14 +10,16 @@ f(x)=0.0414
 
 set pointsize 2
 
-set xr [0.0 : 20.0]
-#set yr [0.0 : 20.0]
+#set xr [0.0 : 20.0]
+#set yr [0.0 : 40.0]
 
 a=4.3
 b=4.3**3 * 3.14 * 2.0
 
 
-plot path."fE_vs_R.dat" using 2:((($3-($4*$5))/$5)*(3.14*$2*$2)) w lp lc 1 pt 6
+plot path."fE_vs_R_zero.dat" using 2:((($3/$5)-$4)*($6)) w lp lc 1 pt 6,\
+ path."fE_vs_R_4p4.dat" using 2:((($3/$5)-$4)*($6)) w lp lc 3 pt 4,\
+path."fE_vs_R.dat" using 2:((($3/$5)-$4)*($6)) w lp lc 4 pt 2
 
 
 

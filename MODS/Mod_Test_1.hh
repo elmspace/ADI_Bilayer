@@ -4,7 +4,7 @@ void Mod_Test_1( ){
   
   allocateMemory(1); // Allocate the first set
   setParameters();
-  setOmegaManual(1);
+  setOmegaManual( );
   // Setting the chemical potentials
   mu_t=-550.0;
   mu_h=-550.0;
@@ -31,7 +31,7 @@ void Mod_Test_1( ){
 
   allocateMemory(1); // Allocate the first set
   setParameters();
-  setOmegaManual(2);
+  setOmegaManual( );
   // Setting the chemical potentials
   mu_t=-550.0;
   mu_h=-550.0;

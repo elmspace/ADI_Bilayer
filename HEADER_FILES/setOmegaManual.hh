@@ -1,7 +1,18 @@
-void setOmegaManual(int phase){   // 1=LamPar 2=LamPer 3=Bilayer 4=Pore 5=Disk
+void setOmegaManual( ){   // 1=LamPar 2=LamPer 3=Bilayer 4=Pore 5=Disk
 
   int i, j, chain,ii,jj;
+  int phase;
 
+  if(Bilayer==1){
+    phase=3;
+  }else if(Pore==1){
+    phase=4;
+  }else if(Disk==1){
+    phase=5;
+  }else{
+    phase=1;
+  }
+  
   // Set to zero --------------------------
   for(i=0;i<NBox;i++){
     for(j=0;j<NBox;j++){

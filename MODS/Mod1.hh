@@ -2,10 +2,10 @@
   This Mod will calculate Free energy as a function of Radius
 */
 void Mod1( ){
-
+  
   allocateMemory(1); // Allocate the first set
   setParameters();
-  setOmegaManual(5);
+  setOmegaManual();
   allocateMemory(2); // Allocate the q and qdag
   
   std::cout<<"R"<<" "<<"delfE"<<" "<<"fE_homo"<<" "<<"Volume"<<" "<<"Area"<<std::endl;
@@ -13,12 +13,12 @@ void Mod1( ){
   outputFile1<<"#"<<" "<<"R"<<" "<<"R+Rpin"<<" "<<"delfE"<<" "<<"fE_homo"<<" "<<"Volume"<<" "<<"Area"<<std::endl;
 
   
-  R=0.5;
+  R=0.01;
   do{
     calculateFreeEnergy();
-    std::cout<<R<<" "<<(R+(drz[0]*NBox/2.0))<<" "<<totalFreeEnergy<<" "<<Homogenous_fE<<" "<<Volume<<" "<<Area<<std::endl;
+    std::cout<<(R+R_tip)<<" "<<(R+(drz[0]*NBox/2.0))<<" "<<totalFreeEnergy<<" "<<Homogenous_fE<<" "<<Volume<<" "<<Area<<std::endl;
     outputFile1<<R<<" "<<(R+(drz[0]*NBox/2.0))<<" "<<totalFreeEnergy<<" "<<Homogenous_fE<<" "<<Volume<<" "<<Area<<std::endl;
-    R+=0.5;
+    R+=2.0;
   }while((R+(drz[0]*NBox/2.0))<30.0);
 
   

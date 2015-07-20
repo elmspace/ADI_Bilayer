@@ -3,6 +3,7 @@ This program uses the ADI method for solving the diffusion equation
 Written By:   Ashkan Dehghan [McMaster University]
 */
 #include "./global.hh"
+#include "./HEADER_FILES/inputArguments.hh"
 #include "./HEADER_FILES/allocateMemory.hh"
 #include "./HEADER_FILES/integrationTrapezoidal.hh"
 #include "./HEADER_FILES/setParameters.hh"
@@ -26,7 +27,15 @@ Written By:   Ashkan Dehghan [McMaster University]
 
 using namespace std;
 
-int main(){
+int main(int argc, char* argv[]){
+
+  // The arguments read in are in order:
+  // 1-> B=Bilayer P=Pore D=Disk
+  // 2-> 
+  // 3-> 
+  // 4-> 
+
+  inputArguments(argc,argv);
   
   //Mod_mu_scan();
   //Mod_basic();

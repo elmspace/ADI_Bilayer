@@ -5,7 +5,7 @@ void Mod_mu_scan( ){
   
   allocateMemory(1); // Allocate the first set
   setParameters();
-  setOmegaManual(3);
+  setOmegaManual();
   allocateMemory(2); // Allocate the q and qdag
 
   mu_d=4.2;

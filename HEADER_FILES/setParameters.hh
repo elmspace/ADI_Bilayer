@@ -19,7 +19,7 @@ void setParameters( ){
 
   // Pinning condition
   if(Pore==1 || Disk==1){
-    pin_cond = 1.0;
+    pin_cond = 0.0;
     // Setting the avrerage concentrations______
     phiAve[0]=0.00005; // ABC Triblock
     phiAve[1]=0.15; // DE Diblock
@@ -34,7 +34,7 @@ void setParameters( ){
   // Setting the chemical potentials
   mu_t=-50.0;
   mu_h=0.0;
-  mu_d=4.4; // 4.5625 fE=0.0
+  //mu_d=4.9; // 4.5625 fE=0.0
   mu_ref=mu_h;
   // Setting the chain lengths________________
   Ns[0]=10;//NA
