@@ -27,15 +27,27 @@ void calculateFreeEnergy( ){
   // Homogenous free energy (not per volume)
   Homogenous_fE=calculatedHomogenousEnergy()*Volume;
 
+  setToZero();
   iter=0;
   do{
     
     iter_global=iter;
     
     // Solving diffusion equations________________
-    solveDiffusionEquation(0);
-    solveDiffusionEquation(1);
-    solveDiffusionEquation(2);  
+    if(AB_Hom==1){
+      solveDiffusionEquation(1);
+      solveDiffusionEquation(2);
+    }else if(ABA_Hom==1){
+      solveDiffusionEquation(0);
+      solveDiffusionEquation(2);
+    }else if(AB_ABA_Hom==1){
+      solveDiffusionEquation(0);
+      solveDiffusionEquation(1);
+      solveDiffusionEquation(2);
+    }else{
+      std::cout<<"You have choose the right blend!"<<std::endl;
+      exit(1);
+    }  
     // Calculate SCFT Equations___________________
     calculatePhi();
     calculateEta();

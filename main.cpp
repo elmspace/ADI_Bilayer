@@ -50,7 +50,7 @@ int main(int argc, char* argv[]){
 
    Mod0 -> In Mod0, we calculate the free energy for a give set of parameters. Results are printed and not saved, this mode is mainly for testing. 
 
-   Mod1 -> In Mod1, we calculate the Free energy as a function of radius for a range of chemical potentials. The result is saved in RESULTS/Mod1_Results.dat
+   Mod1 -> In Mod1, we calculate the Free energy as a function of radius. The result is saved in RESULTS/Mod1_Results.dat
 
    Mod2 -> In Mod2, we calculate the Free energy as a function of chemical potential. The result is saved in RESULTS/Mod2_Results.dat
 

@@ -1,7 +1,7 @@
 reset
 
-path= "/Users/ashkandehghan/Desktop/SCFT_CODES/ADI_Bilayer/PHI/"
-#path= "/home/ash/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/PHI/"
+#path= "/Users/ashkandehghan/Desktop/SCFT_CODES/ADI_Bilayer/PHI/"
+path= "/home/ash/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/PHI/"
 
 
 set pm3d
@@ -18,4 +18,4 @@ set view map
 set autoscale
 set size square
 
-   splot path."phi2D.dat" using 1:2:($6+$7)
+   splot path."phi2D.dat" using 1:2:($3+$4+$5+$6+$7)

@@ -29,16 +29,16 @@ void setParameters( ){
     phiAve[2]=1.0-(phiAve[0]+phiAve[1]); // F Homopolymer
   }
   // Setting the chemical potentials
-  mu_t=-50.0;
+  mu_t=4.5;
   mu_h=0.0;
-  mu_d=4.9;
+  mu_d=-200.0;
   mu_ref=mu_h;
   // Setting the chain lengths________________
-  Ns[0]=10;//NA
-  Ns[1]=10;//NB
-  Ns[2]=10;//NC
-  Ns[3]=40;//ND
-  Ns[4]=60;//NE
+  Ns[0]=50;//NA
+  Ns[1]=100;//NB
+  Ns[2]=50;//NC
+  Ns[3]=50;//ND
+  Ns[4]=50;//NE
   Ns[5]=100;//NF
   NABC_triblock=(double)(Ns[0]+Ns[1]+Ns[2]-3);
   NDE_diblock=(double)(Ns[3]+Ns[4]-2);
@@ -55,7 +55,7 @@ void setParameters( ){
   kappa_triblock=NABC_triblock/NDE_diblock;
   ds=1.0/(NDE_diblock);
   // Setting the box dimensions_______________
-  R=30.01;
+  R=0.01;
   LR=15.0;
   LZ=15.0;
   drz[0]=LR/(NBox-1);
