@@ -31,7 +31,7 @@ void setParameters( ){
   // Setting the chemical potentials
   mu_t=-50.0;
   mu_h=0.0;
-  mu_d=4.4;
+  mu_d=4.9;
   mu_ref=mu_h;
   // Setting the chain lengths________________
   Ns[0]=10;//NA
@@ -55,7 +55,7 @@ void setParameters( ){
   kappa_triblock=NABC_triblock/NDE_diblock;
   ds=1.0/(NDE_diblock);
   // Setting the box dimensions_______________
-  R=0.01;
+  R=30.01;
   LR=15.0;
   LZ=15.0;
   drz[0]=LR/(NBox-1);
