@@ -1,7 +1,7 @@
 reset
 
-#path= "/Users/ashkandehghan/Desktop/SCFT_CODES/ADI_Bilayer/RESULTS/fE_vs_Mu/"
-path= "/home/ash/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/RESULTS/fE_vs_Mu/"
+path= "/Users/ashkandehghan/Desktop/SCFT_CODES/ADI_Bilayer/RESULTS/fE_vs_Mu/"
+#path= "/home/ash/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/RESULTS/fE_vs_Mu/"
 
 
 unset key

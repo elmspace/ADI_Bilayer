@@ -1,5 +1,7 @@
 /*
   In this function, we will initialize the parameters we will be using in the code
+  AB Diblock --> Mu = 4.55
+  ABA Triblock --> Mu = 4.74
 */
 void setParameters( ){
 
@@ -29,7 +31,7 @@ void setParameters( ){
     phiAve[2]=1.0-(phiAve[0]+phiAve[1]); // F Homopolymer
   }
   // Setting the chemical potentials
-  mu_t=4.5;
+  mu_t=4.74;
   mu_h=0.0;
   mu_d=-200.0;
   mu_ref=mu_h;
