@@ -36,12 +36,27 @@ void setParameters( ){
   mu_d=4.4;
   mu_ref=mu_h;
   // Setting the chain lengths________________
-  Ns[0]=50;//NA
-  Ns[1]=100;//NB
-  Ns[2]=50;//NC
-  Ns[3]=50;//ND
-  Ns[4]=50;//NE
-  Ns[5]=100;//NF
+  if(Mod_global==3){
+    //------------ Diblock
+    Ns[3]=N_global;//ND
+    Ns[4]=100-Ns[3];//NE
+    //------------ Triblock
+    Ns[0]=N_global;//NA
+    Ns[2]=Ns[0];//NC
+    Ns[1]=200-(Ns[0]+Ns[2]);//NB
+    //------------ Homopolymer
+    Ns[5]=Ns[3]+Ns[4];//NF
+  }else{
+    //------------ Diblock
+    Ns[3]=50;//ND
+    Ns[4]=100-Ns[3];//NE
+    //------------ Triblock
+    Ns[0]=50;//NA
+    Ns[2]=Ns[0];//NC
+    Ns[1]=200-(Ns[0]+Ns[2]);//NB
+    //------------ Homopolymer
+    Ns[5]=Ns[3]+Ns[4];//NF
+  }
   NABC_triblock=(double)(Ns[0]+Ns[1]+Ns[2]-3);
   NDE_diblock=(double)(Ns[3]+Ns[4]-2);
   NF_homopolymer=(double)(Ns[5]-1);

@@ -35,7 +35,7 @@ void calculateEta( ){
     }
 
 
-    if(iter_global==50){
+    if(iter_global==100){
       I_pin=i;
       J_pin=j;
       pin_cond=1.0;

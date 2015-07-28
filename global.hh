@@ -26,6 +26,9 @@ int Bilayer = 0;
 int Pore = 0;
 int Disk = 0;
 
+int Mod_global;
+int N_global;
+
 int print_fE = 0;
 
 double pin_cond;

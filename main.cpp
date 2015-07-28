@@ -23,7 +23,7 @@ Written By:   Ashkan Dehghan [McMaster University]
 #include "./MODS/Mod0.hh"
 #include "./MODS/Mod1.hh"
 #include "./MODS/Mod2.hh"
-#include "./MODS/Mod_Test_1.hh"
+#include "./MODS/Mod3.hh"
 
 using namespace std;
 
@@ -35,9 +35,12 @@ int main(int argc, char* argv[]){
 
   inputArguments(argc,argv);
 
+  Mod_global=atoi(argv[2]);
+  
   if(atoi(argv[2])==0){Mod0();}
   else if(atoi(argv[2])==1){Mod1();}
   else if(atoi(argv[2])==2){Mod2();}
+  else if(atoi(argv[2])==3){Mod3();}
   else{
     std::cout<<"The Mod you have chosen does not exists, please look at main.cpp"<<std::endl;
     exit(1);
