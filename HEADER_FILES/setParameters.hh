@@ -1,7 +1,5 @@
 /*
   In this function, we will initialize the parameters we will be using in the code
-  AB Diblock --> Mu = 4.55
-  ABA Triblock --> Mu = 4.74
 */
 void setParameters( ){
 
@@ -33,7 +31,7 @@ void setParameters( ){
   // Setting the chemical potentials
   mu_t=-200.0;
   mu_h=0.0;
-  mu_d=4.5;
+  mu_d=4.567; // 4.567
   mu_ref=mu_h;
   // Setting the chain lengths________________
   if(Mod_global==3){
@@ -73,10 +71,10 @@ void setParameters( ){
   ds=1.0/(NDE_diblock);
   // Setting the box dimensions_______________
   R=30.01;
-  LR=15.0;
-  LZ=15.0;
-  drz[0]=LR/(NBox-1);
-  drz[1]=LZ/(NBox-1);
+  LR=12.0;
+  LZ=12.0;
+  drz[0]=LR/(NBox);
+  drz[1]=LZ/(NBox);
   // Setting individual average concentration_
   p_ave[0]=phiAve[0]*((double)Ns[0]/NABC_triblock); // A
   p_ave[1]=phiAve[0]*((double)Ns[1]/NABC_triblock); // B

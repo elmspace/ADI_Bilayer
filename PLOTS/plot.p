@@ -1,7 +1,7 @@
 reset
 
-#path= "/Users/ashkandehghan/Desktop/SCFT_CODES/ADI_Bilayer/PHI/"
-path= "/home/ash/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/PHI/"
+path= "/Users/ashkandehghan/Desktop/SCFT_CODES/ADI_Bilayer/PHI/"
+#path= "/home/ash/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/PHI/"
 
 
 set autoscale
@@ -21,8 +21,8 @@ pause(-1)
 
 reset
 
-#path= "/Users/ashkandehghan/Desktop/SCFT_CODES/ADI_Bilayer/PHI/"
-path= "/home/ash/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/PHI/"
+path= "/Users/ashkandehghan/Desktop/SCFT_CODES/ADI_Bilayer/PHI/"
+#path= "/home/ash/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/PHI/"
 
 
 set autoscale
