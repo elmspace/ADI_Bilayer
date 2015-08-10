@@ -29,9 +29,9 @@ void setParameters( ){
     phiAve[2]=1.0-(phiAve[0]+phiAve[1]); // F Homopolymer
   }
   // Setting the chemical potentials
-  mu_t=-200.0;
+  mu_t=-200.0; // 4.75
   mu_h=0.0;
-  mu_d=4.567; // 4.567
+  mu_d=4.4; // 4.567
   mu_ref=mu_h;
   // Setting the chain lengths________________
   if(Mod_global==3){
@@ -70,11 +70,11 @@ void setParameters( ){
   kappa_triblock=NABC_triblock/NDE_diblock;
   ds=1.0/(NDE_diblock);
   // Setting the box dimensions_______________
-  R=30.01;
+  R=1.01;
   LR=12.0;
   LZ=12.0;
-  drz[0]=LR/(NBox);
-  drz[1]=LZ/(NBox);
+  drz[0]=LR/(NBox-1);
+  drz[1]=LZ/(NBox-1);
   // Setting individual average concentration_
   p_ave[0]=phiAve[0]*((double)Ns[0]/NABC_triblock); // A
   p_ave[1]=phiAve[0]*((double)Ns[1]/NABC_triblock); // B

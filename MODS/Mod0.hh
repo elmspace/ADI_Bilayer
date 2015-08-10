@@ -10,7 +10,7 @@ void Mod0( ){
   allocateMemory(2); // Allocate the q and qdag
   calculateFreeEnergy();
   std::cout<<"NBox"<<" "<<"fE/Vol"<<std::endl;
-  std::cout<<NBox<<" "<<totalFreeEnergy/Volume<<std::endl;
+  std::cout<<NBox<<" "<<(totalFreeEnergy-Homogenous_fE)/Volume<<std::endl;
   allocateMemory(-1); // Deallocating memory
     
   return;
