@@ -31,7 +31,7 @@ void setParameters( ){
   // Setting the chemical potentials
   mu_t=-200.0; // 4.75
   mu_h=0.0;
-  mu_d=4.4; // 4.567
+  mu_d=4.6333; // 4.567
   mu_ref=mu_h;
   // Setting the chain lengths________________
   if(Mod_global==3){
