@@ -18,8 +18,8 @@ int Canonical = 0;
 int GrandCanonical = 1;
 
 // Blend
-int AB_Hom = 1;
-int ABA_Hom = 0;
+int AB_Hom = 0;
+int ABA_Hom = 1;
 int AB_ABA_Hom = 0;
 
 int Bilayer = 0;
@@ -27,7 +27,6 @@ int Pore = 0;
 int Disk = 0;
 
 int Mod_global;
-int N_global;
 
 int print_fE = 0;
 

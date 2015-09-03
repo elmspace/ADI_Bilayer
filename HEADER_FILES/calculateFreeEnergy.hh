@@ -27,6 +27,7 @@ void calculateFreeEnergy( ){
   // Homogenous free energy (not per volume)
   Homogenous_fE=calculatedHomogenousEnergy()*Volume;
 
+  pin_cond=0.0;
   setToZero();
   iter=0;
   do{

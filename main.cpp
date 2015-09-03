@@ -32,6 +32,7 @@ int main(int argc, char* argv[]){
   // The arguments read in are in order:
   // 1-> B=Bilayer P=Pore D=Disk
   // Mod number
+  // Chemical Potential
 
   inputArguments(argc,argv);
 

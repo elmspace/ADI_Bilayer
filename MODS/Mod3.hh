@@ -1,50 +1,63 @@
 /*
-  This Mod will calculate Free energy as a function of Radius
-  Results are saved in /RESULTS/Mod1_Results.dat
+  
+  Results are saved in /RESULTS/Mod3_Results.dat
 */
 void Mod3( ){
 
-  double F1, F2;
-  double R1, R2;
-  double slope, y_intercept;
-  int i;
-  
  
-  N_global=30;
+  std::cout<<"Starting Mod3 function"<<std::endl;
+  std::cout<<"++++++++++++++++++++++++++++++++++++++++++++++++++"<<std::endl;
+  
+  double R_Max=30.0;
+  double R_Min=0.0;
+  
+  double mu, mu_Max=5.9;
+
+  allocateMemory(1); // Allocate the first set
+  setParameters();
+  setOmegaManual();
+  allocateMemory(2); // Allocate the q and qdag
+
+  std::ofstream outputFile1("./RESULTS/Mod3_Results.dat");
+  
+
+  if(AB_Hom==1){
+    mu_d-=0.1;
+  }
+  if(ABA_Hom==1){
+    mu_t-=0.1;
+  }
   do{
     
-    allocateMemory(1); // Allocate the first set
-    setParameters();
-    setOmegaManual();
-    allocateMemory(2); // Allocate the q and qdag
-  
-    for(i=0;i<2;i++){
-      if(i==0){R=0.01;}
-      if(i==1){R=10.0;}   
+    R=5.0;
+    do{
       calculateFreeEnergy();
-      //std::cout<<R<<" "<<R_tip<<" "<<((totalFreeEnergy-Homogenous_fE)/Volume)*Area/(R+R_tip)<<std::endl;
-      if(i==0){
-	F1=((totalFreeEnergy-Homogenous_fE)/Volume)*Area/(R+R_tip);
-	R1=(R+R_tip);
-      }
-      if(i==1){
-	F2=((totalFreeEnergy-Homogenous_fE)/Volume)*Area/(R+R_tip);
-	R2=(R+R_tip);
-      }
+      std::cout<<(R+R_tip)<<" "<<totalFreeEnergy<<" "<<Homogenous_fE<<" "<<Volume<<" "<<Area<<" "<<mu_d<<" "<<mu_t<<" "<<mu_h<<std::endl;
+      outputFile1<<(R+R_tip)<<" "<<totalFreeEnergy<<" "<<Homogenous_fE<<" "<<Volume<<" "<<Area<<" "<<mu_d<<" "<<mu_t<<" "<<mu_h<<std::endl;
+      R+=1.0;
+    }while((R+R_tip)<R_Max);
+    std::cout<<" "<<std::endl;
+    outputFile1<<" "<<std::endl;
+    
+    if(AB_Hom==1){
+      mu_d+=0.025;
+      mu=mu_d;
     }
-
-    slope=(F2-F1)/(R2-R1);
-    y_intercept=F2-slope*R2;
-
-    std::cout<<f[3]<<" "<<slope<<" "<<y_intercept<<std::endl;
-
-    pin_cond=0.0;
-    N_global+=2;
-
-    allocateMemory(-1); // Deallocating memory
+    if(ABA_Hom==1){
+      mu_t+=0.025;
+      mu=mu_t;
+    }
   
-  }while(N_global<72);
-  
+
+  }while(mu<mu_Max);
+
+
+
+  outputFile1.close();
+  allocateMemory(-1); // Deallocating memory
+
+
+ 
   return;
   
 }

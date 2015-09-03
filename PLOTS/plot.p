@@ -1,7 +1,7 @@
 reset
 
 path= "/home/ash/Desktop/SCFT_CODES/ADI_Bilayer/Test/main/PHI/"
-
+path= "/1/home/dehgha2/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/PHI/"
 
 set autoscale
 set key r c
@@ -21,6 +21,7 @@ pause(-1)
 reset
 
 path= "/home/ash/Desktop/SCFT_CODES/ADI_Bilayer/Test/main/PHI/"
+path= "/1/home/dehgha2/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/PHI/"
 
 set autoscale
 set key r c

@@ -4,7 +4,7 @@
 void setParameters( ){
 
   // Hydrophobic/phillic interaction
-  double mol_int=0.15;
+  double mol_int=0.3;
   
   // Interaction parameters
   double xAB,xAC,xAD,xAE,xAF;
@@ -28,33 +28,17 @@ void setParameters( ){
     phiAve[1]=0.1; // DE Diblock
     phiAve[2]=1.0-(phiAve[0]+phiAve[1]); // F Homopolymer
   }
-  // Setting the chemical potentials
-  mu_t=-200.0; // 4.75
-  mu_h=0.0;
-  mu_d=4.55; // 4.33
-  mu_ref=mu_h;
   // Setting the chain lengths________________
-  if(Mod_global==3){
-    //------------ Diblock
-    Ns[3]=N_global;//ND
-    Ns[4]=100-Ns[3];//NE
-    //------------ Triblock
-    Ns[0]=N_global;//NA
-    Ns[2]=Ns[0];//NC
-    Ns[1]=200-(Ns[0]+Ns[2]);//NB
-    //------------ Homopolymer
-    Ns[5]=Ns[3]+Ns[4];//NF
-  }else{
-    //------------ Diblock
-    Ns[3]=80;//ND
-    Ns[4]=200-Ns[3];//NE
-    //------------ Triblock
-    Ns[0]=50;//NA
-    Ns[2]=Ns[0];//NC
-    Ns[1]=200-(Ns[0]+Ns[2]);//NB
-    //------------ Homopolymer
-    Ns[5]=Ns[3]+Ns[4];//NF
-  }
+  //------------ Diblock
+  Ns[3]=50;//ND
+  Ns[4]=100-Ns[3];//NE
+  //------------ Triblock
+  Ns[0]=50;//NA
+  Ns[2]=Ns[0];//NC
+  Ns[1]=200-(Ns[0]+Ns[2]);//NB
+  //------------ Homopolymer
+  Ns[5]=Ns[3]+Ns[4];//NF
+  //-----------------------------------------
   NABC_triblock=(double)(Ns[0]+Ns[1]+Ns[2]-3);
   NDE_diblock=(double)(Ns[3]+Ns[4]-2);
   NF_homopolymer=(double)(Ns[5]-1);
