@@ -1,14 +1,21 @@
 reset
 
-path= "/Users/ashkandehghan/Desktop/SCFT_CODES/ADI_Bilayer/RESULTS/"
-#path= "/home/ash/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/RESULTS/"
+path= "/home/ash/Desktop/SCFT_CODES/ADI_Bilayer/Test/main/RESULTS/"
 
 
+set xr [0.0 : 30.0]
+#set yr [-16 : 16]
 unset key
 
-f(x)=0.0
+#++++++++++++++++++++++++++++++++++++ f1
+a1 = 0.0
+b1 = 0.0
+f1(x) = a1*x + b1 
+fit [0.0 : 30.0] f1(x) path."Mod1_Results.dat" using 1:((($2-$3)/$4)*$5/$1) via a1, b1
+#++++++++++++++++++++++++++++++++++++
 
-plot path."Mod1_Results.dat" using 1:((($2-$3)/$4)*$5/$1) w lp lc 1 pt 6
+plot path."Mod1_Results.dat" using 1:((($2-$3)/$4)*$5/$1) w lp lc 1 pt 6,\
+f1(x)
 
 
 pause(-1)

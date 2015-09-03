@@ -1,8 +1,6 @@
 reset
 
-path= "/Users/ashkandehghan/Desktop/SCFT_CODES/ADI_Bilayer/RESULTS/Mod2_Results.dat"
-#path= "/home/ash/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/RESULTS/Mod2_Results.dat"
-
+path ="/home/ash/Desktop/SCFT_CODES/ADI_Bilayer/Test/main/RESULTS/Mod2_Results.dat"
 
 unset key
 

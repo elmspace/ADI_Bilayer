@@ -4,7 +4,7 @@
 void setParameters( ){
 
   // Hydrophobic/phillic interaction
-  double mol_int=0.3;
+  double mol_int=0.15;
   
   // Interaction parameters
   double xAB,xAC,xAD,xAE,xAF;
@@ -31,7 +31,7 @@ void setParameters( ){
   // Setting the chemical potentials
   mu_t=-200.0; // 4.75
   mu_h=0.0;
-  mu_d=4.6333; // 4.567
+  mu_d=4.55; // 4.33
   mu_ref=mu_h;
   // Setting the chain lengths________________
   if(Mod_global==3){
@@ -46,8 +46,8 @@ void setParameters( ){
     Ns[5]=Ns[3]+Ns[4];//NF
   }else{
     //------------ Diblock
-    Ns[3]=50;//ND
-    Ns[4]=100-Ns[3];//NE
+    Ns[3]=80;//ND
+    Ns[4]=200-Ns[3];//NE
     //------------ Triblock
     Ns[0]=50;//NA
     Ns[2]=Ns[0];//NC

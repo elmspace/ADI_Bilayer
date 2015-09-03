@@ -8,7 +8,8 @@ void Mod1( ){
   std::cout<<"++++++++++++++++++++++++++++++++++++++++++++++++++"<<std::endl;
   
   double R_Max=30.0;
-  
+  double R_Min=0.0;
+
   allocateMemory(1); // Allocate the first set
   setParameters();
   setOmegaManual();
@@ -19,7 +20,7 @@ void Mod1( ){
 
   std::cout<<"R+R_tip"<<" "<<"fE"<<" "<<"fE_homo"<<" "<<"Volume"<<" "<<"Area"<<" "<<"mu_d"<<" "<<"mu_t"<<" "<<"mu_h"<<std::endl;
  
-  R=5.0;
+  R=1.0;
   do{
     calculateFreeEnergy();
     std::cout<<(R+R_tip)<<" "<<totalFreeEnergy<<" "<<Homogenous_fE<<" "<<Volume<<" "<<Area<<" "<<mu_d<<" "<<mu_t<<" "<<mu_h<<std::endl;

@@ -30,12 +30,12 @@ void Mod2( ){
     if(AB_Hom==1){
       std::cout<<mu_d<<" "<<totalFreeEnergy<<" "<<Homogenous_fE<<" "<<Volume<<" "<<Area<<std::endl;
       outputFile1<<mu_d<<" "<<totalFreeEnergy<<" "<<Homogenous_fE<<" "<<Volume<<" "<<Area<<std::endl;
-      mu_d+=0.025;
+      mu_d+=0.05;
       mu=mu_d;
     }else if(ABA_Hom==1){
       std::cout<<mu_t<<" "<<totalFreeEnergy<<" "<<Homogenous_fE<<" "<<Volume<<" "<<Area<<std::endl;
       outputFile1<<mu_t<<" "<<totalFreeEnergy<<" "<<Homogenous_fE<<" "<<Volume<<" "<<Area<<std::endl;
-      mu_t+=0.025;
+      mu_t+=0.05;
       mu=mu_t;
     }else{
       std::cout<<"The blend you have chosen does not fit this function!"<<std::endl;
