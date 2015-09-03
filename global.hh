@@ -18,8 +18,8 @@ int Canonical = 0;
 int GrandCanonical = 1;
 
 // Blend
-int AB_Hom = 0;
-int ABA_Hom = 1;
+int AB_Hom = 1;
+int ABA_Hom = 0;
 int AB_ABA_Hom = 0;
 
 int Bilayer = 0;
@@ -63,7 +63,7 @@ double Volume, Area;
 
 // Control parameters
 double delta_W, delta_Phi;
-double precision=1.0e-3;
+double precision=1.0e-4;
 
 double LR, LZ;
 double ***w, ***phi, *phiAve, *p_ave, *w_ave;

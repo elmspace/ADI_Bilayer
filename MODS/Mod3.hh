@@ -34,7 +34,7 @@ void Mod3( ){
       calculateFreeEnergy();
       std::cout<<(R+R_tip)<<" "<<totalFreeEnergy<<" "<<Homogenous_fE<<" "<<Volume<<" "<<Area<<" "<<mu_d<<" "<<mu_t<<" "<<mu_h<<std::endl;
       outputFile1<<(R+R_tip)<<" "<<totalFreeEnergy<<" "<<Homogenous_fE<<" "<<Volume<<" "<<Area<<" "<<mu_d<<" "<<mu_t<<" "<<mu_h<<std::endl;
-      R+=1.0;
+      R+=2.0;
     }while((R+R_tip)<R_Max);
     std::cout<<" "<<std::endl;
     outputFile1<<" "<<std::endl;
