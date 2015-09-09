@@ -34,8 +34,8 @@ void calculateEta( ){
       }
     }
 
-
-    if(iter_global==500){
+    // You can set the iter_global to what ever, but 1 seems to work the best
+    if(iter_global==1){
       I_pin=i;
       J_pin=j;
       pin_cond=1.0;

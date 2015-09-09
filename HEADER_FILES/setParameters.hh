@@ -39,9 +39,9 @@ void setParameters( ){
   //------------ Homopolymer
   Ns[5]=Ns[3]+Ns[4];//NF
   //-----------------------------------------
-  NABC_triblock=(double)(Ns[0]+Ns[1]+Ns[2]-3);
-  NDE_diblock=(double)(Ns[3]+Ns[4]-2);
-  NF_homopolymer=(double)(Ns[5]-1);
+  NABC_triblock=(double)(Ns[0]+Ns[1]+Ns[2]);
+  NDE_diblock=(double)(Ns[3]+Ns[4]);
+  NF_homopolymer=(double)(Ns[5]);
   f[0]=(double)Ns[0]/NABC_triblock;
   f[1]=(double)Ns[1]/NABC_triblock;
   f[2]=(double)Ns[2]/NABC_triblock;
@@ -52,7 +52,7 @@ void setParameters( ){
   kappa_homopolymer=NF_homopolymer/NDE_diblock;
   kappa_diblock=NDE_diblock/NDE_diblock;
   kappa_triblock=NABC_triblock/NDE_diblock;
-  ds=1.0/(NDE_diblock);
+  ds=1.0/(NDE_diblock-1);
   // Setting the box dimensions_______________
   R=1.01;
   LR=12.0;
