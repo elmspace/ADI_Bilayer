@@ -52,7 +52,7 @@ void setParameters( ){
   kappa_homopolymer=NF_homopolymer/NDE_diblock;
   kappa_diblock=NDE_diblock/NDE_diblock;
   kappa_triblock=NABC_triblock/NDE_diblock;
-  ds=1.0/(NDE_diblock-1);
+  ds=1.0/NDE_diblock; // not N-1 because we go N
   // Setting the box dimensions_______________
   R=1.01;
   LR=12.0;
