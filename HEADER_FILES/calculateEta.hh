@@ -20,33 +20,12 @@ void calculateEta( ){
     }
   }
   
-  /*
   if(Pore==1 || Disk==1){
-    j=NBox/2;
-    i=0;
-    dum1=(phi[0][i][j]+phi[2][i][j]+phi[3][i][j]+phi[5][i][j]-phi[1][i][j]-phi[4][i][j]);
-    if(dum1<0.0){dum2=-1.0;}
-    if(dum1>0.0){dum2=1.0;}
-    for(i=0;i<NBox;i++){
-      dum1=(phi[0][i][j]+phi[2][i][j]+phi[3][i][j]+phi[5][i][j]-phi[1][i][j]-phi[4][i][j]);
-      if(double(dum1*dum2)<0.0){
-	R_tip=drz[0]*double(i);
-	break;
-      }
-    }
-
-    // You can set the iter_global to what ever, but 1 seems to work the best
-    if(iter_global==1){
-      I_pin=i;
-      J_pin=j;
-      pin_cond=10.0;
-    }
+    I_pin=NBox/2;
+    J_pin=NBox/2;
+    R_tip=drz[0]*I_pin;
+    pin_cond=10.0;
   }
-  */
-  I_pin=NBox/2;
-  J_pin=NBox/2;
-  R_tip=drz[0]*I_pin;
-  pin_cond=10.0;
   
   pin_delphi=(phi[0][I_pin][J_pin]+phi[2][I_pin][J_pin]+phi[3][I_pin][J_pin]+phi[5][I_pin][J_pin]-phi[1][I_pin][J_pin]-phi[4][I_pin][J_pin]);
   pin[I_pin][J_pin]-=pin_cond*pin_delphi;
