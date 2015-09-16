@@ -90,7 +90,7 @@ double calculatedHomogenousEnergy( ){
       }
       fE_homo-=p_ave[ii]*w_ave[ii];
     }
-    fE_homo-=((act_t*Qt_ave/kappa_triblock)+Qd_ave+(act_h*Qh_ave/kappa_homopolymer));
+    fE_homo-=((act_t*Qt_ave/kappa_triblock)+(act_d*Qd_ave/kappa_diblock)+(act_h*Qh_ave/kappa_homopolymer));
     
   }
   //std::cout<<fE_homo<<std::endl;

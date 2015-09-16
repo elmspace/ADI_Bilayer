@@ -4,7 +4,7 @@
 void setParameters( ){
 
   // Hydrophobic/phillic interaction
-  double mol_int=0.3;
+  double mol_int=0.05;
   
   // Interaction parameters
   double xAB,xAC,xAD,xAE,xAF;
@@ -52,13 +52,13 @@ void setParameters( ){
   kappa_homopolymer=NF_homopolymer/NDE_diblock;
   kappa_diblock=NDE_diblock/NDE_diblock;
   kappa_triblock=NABC_triblock/NDE_diblock;
-  ds=1.0/NDE_diblock; // not N-1 because we go N
+  ds=1.0/(NDE_diblock); // not N-1 because we go N
   // Setting the box dimensions_______________
-  R=1.01;
-  LR=12.0;
-  LZ=12.0;
-  drz[0]=LR/(NBox-1);
-  drz[1]=LZ/(NBox-1);
+  R=0.00001;
+  LR=4.0;
+  LZ=4.0;
+  drz[0]=LR/(NBox);
+  drz[1]=LZ/(NBox);
   // Setting individual average concentration_
   p_ave[0]=phiAve[0]*((double)Ns[0]/NABC_triblock); // A
   p_ave[1]=phiAve[0]*((double)Ns[1]/NABC_triblock); // B

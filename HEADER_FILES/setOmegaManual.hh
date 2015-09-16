@@ -3,14 +3,19 @@ void setOmegaManual( ){   // 1=LamPar 2=LamPer 3=Bilayer 4=Pore 5=Disk
   int i, j, chain,ii,jj;
   int phase;
 
-  if(Bilayer==1){
+  if(LamPar==1){
+    phase=1;
+  }else if (LamPer==1){
+    phase=2;
+  }else if(Bilayer==1){
     phase=3;
   }else if(Pore==1){
     phase=4;
   }else if(Disk==1){
     phase=5;
   }else{
-    phase=1;
+    std::cout<<"No phase was selected!"<<std::endl;
+    exit(1);
   }
   
   // Set to zero --------------------------
@@ -30,12 +35,22 @@ void setOmegaManual( ){   // 1=LamPar 2=LamPer 3=Bilayer 4=Pore 5=Disk
   if(phase==1){ // Lam Parallel (modulation in z direction)
     for(i=0;i<NBox;i++){
       for(j=0;j<NBox;j++){
+	/*
 	phi[0][i][j]=cos(2.0*Pi*j/NBox)+1.0;
 	phi[1][i][j]=-cos(2.0*Pi*j/NBox)+1.0;
 	phi[2][i][j]=cos(2.0*Pi*j/NBox)+1.0;
 	phi[3][i][j]=cos(2.0*Pi*j/NBox)+1.0;
 	phi[4][i][j]=-cos(2.0*Pi*j/NBox)+1.0;
 	phi[5][i][j]=0.0;
+	*/
+
+	w[0][i][j]=0.0;
+	w[1][i][j]=0.0;
+	w[2][i][j]=0.0;
+	w[3][i][j]=-cos(2.0*Pi*j/NBox);
+	w[4][i][j]=cos(2.0*Pi*j/NBox);
+	w[5][i][j]=0.0;
+
       }
     }   
   }else if(phase==2){ // Lam Perpendicular (modulation in r direction)
@@ -91,7 +106,7 @@ void setOmegaManual( ){   // 1=LamPar 2=LamPer 3=Bilayer 4=Pore 5=Disk
   }
 
 
-  
+  /*
   // ( Setting the omega fields ) ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   for(i=0;i<NBox;i++){
     for(j=0;j<NBox;j++){
@@ -104,7 +119,8 @@ void setOmegaManual( ){   // 1=LamPar 2=LamPer 3=Bilayer 4=Pore 5=Disk
     }
   }
   // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  
+  */
+
   return;
 
 };

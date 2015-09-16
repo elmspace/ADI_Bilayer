@@ -25,6 +25,8 @@ int AB_ABA_Hom = 0;
 int Bilayer = 0;
 int Pore = 0;
 int Disk = 0;
+int LamPar = 0;
+int LamPer = 0;
 
 int Mod_global;
 
