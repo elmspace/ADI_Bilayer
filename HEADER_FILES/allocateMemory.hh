@@ -28,18 +28,18 @@ void allocateMemory(int index){
     del_w_ave=create_1d_double_array(ChainType,"del_w_ave");
     f=create_1d_double_array(ChainType,"f");
   }else if(index==2){
-    q0=create_3d_double_array(NBox,NBox,Ns[0]+1,"q0");
-    q1=create_3d_double_array(NBox,NBox,Ns[1]+1,"q1");
-    q2=create_3d_double_array(NBox,NBox,Ns[2]+1,"q2");
-    q3=create_3d_double_array(NBox,NBox,Ns[3]+1,"q3");
-    q4=create_3d_double_array(NBox,NBox,Ns[4]+1,"q4");
-    q5=create_3d_double_array(NBox,NBox,Ns[5]+1,"q5");
-    q0dag=create_3d_double_array(NBox,NBox,Ns[0]+1,"q0dag");
-    q1dag=create_3d_double_array(NBox,NBox,Ns[1]+1,"q1dag");
-    q2dag=create_3d_double_array(NBox,NBox,Ns[2]+1,"q2dag");
-    q3dag=create_3d_double_array(NBox,NBox,Ns[3]+1,"q3dag");
-    q4dag=create_3d_double_array(NBox,NBox,Ns[4]+1,"q4dag");
-    q5dag=create_3d_double_array(NBox,NBox,Ns[5]+1,"q5dag");
+    q0=create_3d_double_array(NBox,NBox,Ns[0],"q0");
+    q1=create_3d_double_array(NBox,NBox,Ns[1],"q1");
+    q2=create_3d_double_array(NBox,NBox,Ns[2],"q2");
+    q3=create_3d_double_array(NBox,NBox,Ns[3],"q3");
+    q4=create_3d_double_array(NBox,NBox,Ns[4],"q4");
+    q5=create_3d_double_array(NBox,NBox,Ns[5],"q5");
+    q0dag=create_3d_double_array(NBox,NBox,Ns[0],"q0dag");
+    q1dag=create_3d_double_array(NBox,NBox,Ns[1],"q1dag");
+    q2dag=create_3d_double_array(NBox,NBox,Ns[2],"q2dag");
+    q3dag=create_3d_double_array(NBox,NBox,Ns[3],"q3dag");
+    q4dag=create_3d_double_array(NBox,NBox,Ns[4],"q4dag");
+    q5dag=create_3d_double_array(NBox,NBox,Ns[5],"q5dag");
   }else if(index==-1){ //Deallocating memory
     //Destroy memory allocations------------
     destroy_3d_double_array(w);

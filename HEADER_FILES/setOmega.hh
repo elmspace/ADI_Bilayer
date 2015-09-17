@@ -11,15 +11,11 @@ void setOmega( ){
   // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   std::ifstream infile;
-  if(NBox==32){
-    if(Bilayer==1){infile.open("./OMEGA/READ/phi_bilayer_32_32.dat");}
-    if(Pore==1){infile.open("./OMEGA/READ/phi_pore_32_32.dat");}
-    if(Disk==1){infile.open("./OMEGA/READ/phi_disk_32_32.dat");}
-  }else if(NBox==64){
-    if(Bilayer==1){infile.open("./OMEGA/READ/phi_bilayer_64_64.dat");}
-    if(Pore==1){infile.open("./OMEGA/READ/phi_pore_64_64.dat");}
-    if(Pore==1){infile.open("./OMEGA/READ/phi_disk_64_64.dat");}
-  }
+  if(Bilayer==1){infile.open("./OMEGA/READ/phi_bilayer_64_64.dat");}
+  if(Pore==1){infile.open("./OMEGA/READ/phi_pore_64_64.dat");}
+  if(Pore==1){infile.open("./OMEGA/READ/phi_disk_64_64.dat");}
+  if(LamPar==1){infile.open("./OMEGA/READ/phi_LamPar_64_64.dat");}
+  if(LamPer==1){infile.open("./OMEGA/READ/phi_LamPer_64_64.dat");}
   for(i=0;i<NBox;i++){
     for(j=0;j<NBox;j++){
       infile >> phi[0][i][j] >> phi[1][i][j] >> phi[2][i][j] >> phi[3][i][j] >> phi[4][i][j] >> phi[5][i][j];
@@ -31,7 +27,7 @@ void setOmega( ){
   for(i=0;i<NBox;i++){
     for(j=0;j<NBox;j++){
       for(ii=0;ii<ChainType;ii++){
-	cal_w[ii][i][j]=0.0;
+	w[ii][i][j]=0.0;
 	for(jj=0;jj<ChainType;jj++){  
 	  w[ii][i][j]+=chiMatrix[ii][jj]*phi[jj][i][j];
 	}

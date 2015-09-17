@@ -85,8 +85,8 @@ double calculatedHomogenousEnergy( ){
     
     fE_homo=0.0;
     for(ii=0;ii<ChainType;ii++){
-      for(jj=ii;jj<ChainType;jj++){  
-	fE_homo+=p_ave[ii]*chiMatrix[ii][jj]*p_ave[jj];
+      for(jj=0;jj<ChainType;jj++){  
+	fE_homo+=(p_ave[ii]*chiMatrix[ii][jj]*p_ave[jj])/2.0;
       }
       fE_homo-=p_ave[ii]*w_ave[ii];
     }

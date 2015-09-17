@@ -6,7 +6,7 @@ void Mod0( ){
   print_fE=1;
   allocateMemory(1); // Allocate the first set
   setParameters();
-  setOmegaManual();
+  setOmega();
   allocateMemory(2); // Allocate the q and qdag
   calculateFreeEnergy();
   std::cout<<"NBox"<<" "<<"fE/Vol"<<std::endl;

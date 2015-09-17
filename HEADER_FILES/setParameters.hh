@@ -52,13 +52,13 @@ void setParameters( ){
   kappa_homopolymer=NF_homopolymer/NDE_diblock;
   kappa_diblock=NDE_diblock/NDE_diblock;
   kappa_triblock=NABC_triblock/NDE_diblock;
-  ds=1.0/(NDE_diblock); // not N-1 because we go N
+  ds=1.0/(NDE_diblock-2);
   // Setting the box dimensions_______________
-  R=0.00001;
-  LR=4.0;
-  LZ=4.0;
-  drz[0]=LR/(NBox);
-  drz[1]=LZ/(NBox);
+  R=100.00001;
+  LR=4.1;
+  LZ=4.1;
+  drz[0]=LR/(NBox-1);
+  drz[1]=LZ/(NBox-1);
   // Setting individual average concentration_
   p_ave[0]=phiAve[0]*((double)Ns[0]/NABC_triblock); // A
   p_ave[1]=phiAve[0]*((double)Ns[1]/NABC_triblock); // B
@@ -67,21 +67,21 @@ void setParameters( ){
   p_ave[4]=phiAve[1]*((double)Ns[4]/NDE_diblock); // E
   p_ave[5]=phiAve[2]; // F
   // Setting the interactions_________________
-  xAB=mol_int*NDE_diblock;
+  xAB=0.0;//mol_int*NDE_diblock;
   xAC=0.0;
   xAD=0.0;
-  xAE=mol_int*NDE_diblock;
+  xAE=0.0;//mol_int*NDE_diblock;
   xAF=0.0;
-  xBC=mol_int*NDE_diblock;
-  xBD=mol_int*NDE_diblock;
+  xBC=0.0;//mol_int*NDE_diblock;
+  xBD=0.0;//mol_int*NDE_diblock;
   xBE=0.0;
-  xBF=mol_int*NDE_diblock;
+  xBF=0.0;//mol_int*NDE_diblock;
   xCD=0.0;
-  xCE=mol_int*NDE_diblock;
+  xCE=0.0;//mol_int*NDE_diblock;
   xCF=0.0;
   xDE=mol_int*NDE_diblock;
   xDF=0.0;
-  xEF=mol_int*NDE_diblock;
+  xEF=0.0;//mol_int*NDE_diblock;
   // Setting the ChiMatrix ___________________
   chiMatrix[0][0]=0.0;
   chiMatrix[0][1]=xAB;

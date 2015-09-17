@@ -9,15 +9,15 @@ void calculatePhi(){
     for(i=0;i<NBox;i++){
       for(j=0;j<NBox;j++){
 	phi[chain][i][j]=0.0;
-	for(s=0;s<(Ns[chain]+1);s++){
+	for(s=0;s<Ns[chain];s++){
 	  
-	  if(s==0 || s==Ns[chain]){
-	    if(chain==0){phi[chain][i][j]+=0.5*q0[i][j][s]*q0dag[i][j][Ns[chain]-s]*ds;}	    
-	    if(chain==1){phi[chain][i][j]+=0.5*q1[i][j][s]*q1dag[i][j][Ns[chain]-s]*ds;}
-	    if(chain==2){phi[chain][i][j]+=0.5*q2[i][j][s]*q2dag[i][j][Ns[chain]-s]*ds;}
-	    if(chain==3){phi[chain][i][j]+=0.5*q3[i][j][s]*q3dag[i][j][Ns[chain]-s]*ds;}
-	    if(chain==4){phi[chain][i][j]+=0.5*q4[i][j][s]*q4dag[i][j][Ns[chain]-s]*ds;}
-	    if(chain==5){phi[chain][i][j]+=0.5*q5[i][j][s]*q5dag[i][j][Ns[chain]-s]*ds;}
+	  if(s==0 || s==(Ns[chain]-1)){
+	    if(chain==0){phi[chain][i][j]+=0.5*q0[i][j][s]*q0dag[i][j][(Ns[chain]-1)-s]*ds;}	    
+	    if(chain==1){phi[chain][i][j]+=0.5*q1[i][j][s]*q1dag[i][j][(Ns[chain]-1)-s]*ds;}
+	    if(chain==2){phi[chain][i][j]+=0.5*q2[i][j][s]*q2dag[i][j][(Ns[chain]-1)-s]*ds;}
+	    if(chain==3){phi[chain][i][j]+=0.5*q3[i][j][s]*q3dag[i][j][(Ns[chain]-1)-s]*ds;}
+	    if(chain==4){phi[chain][i][j]+=0.5*q4[i][j][s]*q4dag[i][j][(Ns[chain]-1)-s]*ds;}
+	    if(chain==5){phi[chain][i][j]+=0.5*q5[i][j][s]*q5dag[i][j][(Ns[chain]-1)-s]*ds;}
 	  }else{
 	    if(chain==0){phi[chain][i][j]+=q0[i][j][s]*q0dag[i][j][Ns[chain]-s]*ds;}
 	    if(chain==1){phi[chain][i][j]+=q1[i][j][s]*q1dag[i][j][Ns[chain]-s]*ds;}

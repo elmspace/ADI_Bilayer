@@ -23,6 +23,10 @@ void calculateFreeEnergy( ){
   act_h=exp(kappa_homopolymer*(mu_h-mu_ref));
   act_t=exp(kappa_triblock*(mu_t-mu_ref));
   act_d=exp(kappa_diblock*(mu_d-mu_ref));
+
+  std::cout<<act_h<<std::endl;
+  std::cout<<act_t<<std::endl;
+  std::cout<<act_d<<std::endl;
   
   // Homogenous free energy (not per volume)
   Homogenous_fE=calculatedHomogenousEnergy()*Volume;
