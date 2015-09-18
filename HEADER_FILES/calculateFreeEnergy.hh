@@ -90,7 +90,7 @@ void calculateFreeEnergy( ){
       
     saveData();
     iter++;
-  }while((delta_W>precision)||(iter<500));
+  }while((delta_W>precision)||(iter<200));
 
   
 };

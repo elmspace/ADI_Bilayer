@@ -65,7 +65,7 @@ double Volume, Area;
 
 // Control parameters
 double delta_W, delta_Phi;
-double precision=1.0e-4;
+double precision=1.0e-3;
 
 double LR, LZ;
 double ***w, ***phi, *phiAve, *p_ave, *w_ave;

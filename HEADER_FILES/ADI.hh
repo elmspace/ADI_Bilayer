@@ -58,13 +58,13 @@ void Make_Upper(char step, int index, int chain){
   if(step=='h'){// half step
     Mu[0]=(gamma(0)+alpha(0));
     Mu[NBox-1]=0.0;
-    for(i=1;i<NBox-1;i++){
+    for(i=1;i<(NBox-1);i++){
       Mu[i]=gamma(i);
     }
   }else{// full step
     Mu[0]=(2.0*thetaHat(0));
     Mu[NBox-1]=0.0;
-    for(i=1;i<NBox-1;i++){
+    for(i=1;i<(NBox-1);i++){
       Mu[i]=thetaHat(i);
     }
   }
@@ -76,13 +76,13 @@ void Make_Lower(char step, int index, int chain){
   if(step=='h'){// half step (the index assignment here looks a little weird, it is right, look at the theory derivation)
     Ml[NBox-1]=(gamma(NBox-1)+alpha(NBox-1));
     Ml[0]=0.0;
-    for(i=1;i<NBox-1;i++){
+    for(i=1;i<(NBox-1);i++){
       Ml[i]=alpha(i);
     }
   }else{// full step
     Ml[NBox-1]=(2.0*thetaHat(0));
     Ml[0]=0.0;
-    for(i=1;i<NBox-1;i++){
+    for(i=1;i<(NBox-1);i++){
       Ml[i]=thetaHat(i);
     }
   }
@@ -110,8 +110,7 @@ void Make_Right_Vector(char step, int index, int chain){
       for(i=0;i<NBox;i++){
 	Rvector[i]=sigma(i,index,chain)*qini[i][index]+2.0*theta(index)*qini[i][index+1];	
       }
-      
-    }else if(index==NBox-1){
+    }else if(index==(NBox-1)){
       for(i=0;i<NBox;i++){
 	Rvector[i]=2.0*theta(index)*qini[i][index-1]+sigma(i,index,chain)*qini[i][index];
       }
@@ -125,7 +124,7 @@ void Make_Right_Vector(char step, int index, int chain){
       for(i=0;i<NBox;i++){
 	Rvector[i]=betaHat(index,i,chain)*qini[index][i]+(alphaHat(index)+gammaHat(index))*qini[index+1][i];
       }
-    }else if(index==NBox-1){
+    }else if(index==(NBox-1)){
       for(i=0;i<NBox;i++){
 	Rvector[i]=betaHat(index,i,chain)*qini[index][i]+(alphaHat(index)+gammaHat(index))*qini[index-1][i];
       }
@@ -290,7 +289,7 @@ void Make_q(char step, int index, int s, int chain, int direction){
   }
   
   return;
-}
+} 
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // This goes over the actual ADI algorithm.
