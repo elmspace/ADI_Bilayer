@@ -6,7 +6,7 @@ void Mod2( ){
   std::cout<<"Starting Mod2 function"<<std::endl;
   std::cout<<"++++++++++++++++++++++++++++++++++++++++++++++++++"<<std::endl;
   
-  double mu, mu_Max=5.9;
+  double mu, mu_Lim=-5.9;
   
   allocateMemory(1); // Allocate the first set
   setParameters();
@@ -14,34 +14,18 @@ void Mod2( ){
   allocateMemory(2); // Allocate the q and qdag
 
   std::ofstream outputFile1("./RESULTS/Mod2_Results.dat");
-  if(AB_Hom==1){
-    outputFile1<<"#"<<"mu_d"<<" "<<"fE"<<" "<<"fE_homo"<<" "<<"Volume"<<" "<<"Area"<<std::endl;
-    std::cout<<"mu_d"<<" "<<"fE"<<" "<<"fE_homo"<<" "<<"Volume"<<" "<<"Area"<<std::endl;
-  }else if(ABA_Hom==1){
-    outputFile1<<"#"<<"mu_t"<<" "<<"fE"<<" "<<"fE_homo"<<" "<<"Volume"<<" "<<"Area"<<std::endl;
-    std::cout<<"mu_t"<<" "<<"fE"<<" "<<"fE_homo"<<" "<<"Volume"<<" "<<"Area"<<std::endl;
-  }else{
-    std::cout<<"The blend you have chosen does not fit this function!"<<std::endl;
-    exit(1);
-  }
-
+  outputFile1<<"#"<<"mu_h"<<" "<<"fE"<<" "<<"fE_homo"<<" "<<"Volume"<<" "<<"Area"<<std::endl;
+  std::cout<<"mu_h"<<" "<<"fE"<<" "<<"fE_homo"<<" "<<"Volume"<<" "<<"Area"<<std::endl;
+ 
   do{
     calculateFreeEnergy();
-    if(AB_Hom==1){
-      std::cout<<mu_d<<" "<<totalFreeEnergy<<" "<<Homogenous_fE<<" "<<Volume<<" "<<Area<<std::endl;
-      outputFile1<<mu_d<<" "<<totalFreeEnergy<<" "<<Homogenous_fE<<" "<<Volume<<" "<<Area<<std::endl;
-      mu_d+=0.05;
-      mu=mu_d;
-    }else if(ABA_Hom==1){
-      std::cout<<mu_t<<" "<<totalFreeEnergy<<" "<<Homogenous_fE<<" "<<Volume<<" "<<Area<<std::endl;
-      outputFile1<<mu_t<<" "<<totalFreeEnergy<<" "<<Homogenous_fE<<" "<<Volume<<" "<<Area<<std::endl;
-      mu_t+=0.05;
-      mu=mu_t;
-    }else{
-      std::cout<<"The blend you have chosen does not fit this function!"<<std::endl;
-      exit(1);
-    }  
-  }while(mu<mu_Max);
+ 
+    std::cout<<mu_h<<" "<<totalFreeEnergy<<" "<<Homogenous_fE<<" "<<Volume<<" "<<Area<<std::endl;
+    outputFile1<<mu_h<<" "<<totalFreeEnergy<<" "<<Homogenous_fE<<" "<<Volume<<" "<<Area<<std::endl;
+    mu_h-=0.05;
+    mu=mu_h;
+  
+  }while(mu>mu_Lim);
   std::cout<<"+++++++++++++++++++++++++++"<<std::endl;
 
   outputFile1.close();

@@ -4,7 +4,7 @@
 void setParameters( ){
 
   // Hydrophobic/phillic interaction
-  double mol_int=0.05;
+  double mol_int=0.3;
   
   // Interaction parameters
   double xAB,xAC,xAD,xAE,xAF;
@@ -54,9 +54,9 @@ void setParameters( ){
   kappa_triblock=NABC_triblock/NDE_diblock;
   ds=1.0/(NDE_diblock-2);
   // Setting the box dimensions_______________
-  R=100.00001;
-  LR=4.1;
-  LZ=4.1;
+  R=0.00001;
+  LR=12.0;
+  LZ=12.0;
   drz[0]=LR/(NBox-1);
   drz[1]=LZ/(NBox-1);
   // Setting individual average concentration_
@@ -67,21 +67,21 @@ void setParameters( ){
   p_ave[4]=phiAve[1]*((double)Ns[4]/NDE_diblock); // E
   p_ave[5]=phiAve[2]; // F
   // Setting the interactions_________________
-  xAB=0.0;//mol_int*NDE_diblock;
+  xAB=mol_int*NDE_diblock;
   xAC=0.0;
   xAD=0.0;
-  xAE=0.0;//mol_int*NDE_diblock;
+  xAE=mol_int*NDE_diblock;
   xAF=0.0;
-  xBC=0.0;//mol_int*NDE_diblock;
-  xBD=0.0;//mol_int*NDE_diblock;
+  xBC=mol_int*NDE_diblock;
+  xBD=mol_int*NDE_diblock;
   xBE=0.0;
-  xBF=0.0;//mol_int*NDE_diblock;
+  xBF=mol_int*NDE_diblock;
   xCD=0.0;
-  xCE=0.0;//mol_int*NDE_diblock;
+  xCE=mol_int*NDE_diblock;
   xCF=0.0;
   xDE=mol_int*NDE_diblock;
   xDF=0.0;
-  xEF=0.0;//mol_int*NDE_diblock;
+  xEF=mol_int*NDE_diblock;
   // Setting the ChiMatrix ___________________
   chiMatrix[0][0]=0.0;
   chiMatrix[0][1]=xAB;

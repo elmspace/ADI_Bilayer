@@ -1,7 +1,6 @@
 reset
 
-path= "/home/ash/Desktop/SCFT_CODES/ADI_Bilayer/Test/main/RESULTS/"
-
+path= "/home/ash/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/RESULTS/" # Elmspace
 
 set xr [0.0 : 30.0]
 #set yr [-16 : 16]
