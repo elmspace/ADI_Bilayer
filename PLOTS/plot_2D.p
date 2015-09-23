@@ -2,14 +2,14 @@ reset
 
 #path= "/home/ash/Desktop/SCFT_CODES/ADI_Bilayer/Test/main/PHI/"
 path= "/1/home/dehgha2/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/PHI/"
-path= "/home/ash/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/PHI/" # Elmspace
+#path= "/home/ash/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/PHI/" # Elmspace
 
 
 set pm3d
-set iso 100
-set samp 100
+set iso 10
+set samp 10
 set palette model RGB
-set dgrid3d 64,64,1
+set dgrid3d 65,65,1
 set pm3d flush begin ftriangles scansforward interpolate 10,5
    
 unset key

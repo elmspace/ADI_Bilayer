@@ -4,7 +4,7 @@
 void setParameters( ){
 
   // Hydrophobic/phillic interaction
-  double mol_int=0.2;
+  double mol_int=0.3;
   
   // Interaction parameters
   double xAB,xAC,xAD,xAE,xAF;
@@ -30,7 +30,7 @@ void setParameters( ){
   }
   // Setting the chain lengths________________
   //------------ Diblock
-  Ns[3]=50;//ND
+  Ns[3]=40;//ND
   Ns[4]=100-Ns[3];//NE
   //------------ Triblock
   Ns[0]=50;//NA
@@ -54,9 +54,9 @@ void setParameters( ){
   kappa_triblock=NABC_triblock/NDE_diblock;
   ds=1.0/(NDE_diblock-2);
   // Setting the box dimensions_______________
-  R=1000.00001;
-  LR=4.1;
-  LZ=4.1;
+  R=0.00001;
+  LR=12.0;
+  LZ=12.0;
   drz[0]=LR/(NBox-1);
   drz[1]=LZ/(NBox-1);
   // Setting individual average concentration_

@@ -83,9 +83,20 @@ void calculateFreeEnergy( ){
     
     totalFreeEnergy=Interaction_fE-Omega_fE-Entropy_fE;
 
+    phi_diblock=0.0;
+    phi_triblock=0.0;
+    phi_hom=0.0;
+    phi_diblock+=integrationTrapezoidal(phi[3],0,(NBox-1),0,(NBox-1),drz[0],drz[1],'c');
+    phi_diblock+=integrationTrapezoidal(phi[4],0,(NBox-1),0,(NBox-1),drz[0],drz[1],'c');
+    phi_diblock*=(2.0*Pi/Volume);
+    phi_hom=integrationTrapezoidal(phi[5],0,(NBox-1),0,(NBox-1),drz[0],drz[1],'c');
+    phi_hom*=(2.0*Pi/Volume);
+    phi_triblock=1.0-phi_diblock-phi_hom;
+    
+
     if(print_fE==1){
       //std::cout<<"iter="<<iter<<"  "<<"fE="<<totalFreeEnergy<<"  "<<"fE_Hom="<<Homogenous_fE<<"  "<<"delW="<<delta_W<<"  "<<"P_t_ave="<<(p_ave[0]+p_ave[1]+p_ave[2])<<"  "<<"P_d_ave="<<(p_ave[3]+p_ave[4])<<"  "<<"P_h_ave="<<p_ave[5]<<std::endl;
-      std::cout<<iter<<"  "<<(totalFreeEnergy-Homogenous_fE)/Volume<<"  "<<delta_W<<std::endl;
+      std::cout<<iter<<"  "<<(totalFreeEnergy-Homogenous_fE)/Volume<<"  "<<delta_W<<"  "<<phi_diblock<<"  "<<phi_hom<<"  "<<phi_triblock<<std::endl;
     }
       
     saveData();

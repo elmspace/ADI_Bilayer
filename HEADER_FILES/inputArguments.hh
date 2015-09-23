@@ -22,19 +22,19 @@ void inputArguments(int numb_of_args, char* arg_input[]){
   if(!(chem_readin==0.0)){
     if(AB_Hom==1){
       mu_t=-200.0;
-      mu_h=chem_readin;
-      mu_d=0.0;
-      mu_ref=mu_d;
+      mu_h=0.0;
+      mu_d=chem_readin;
+      mu_ref=mu_h;
     }else if(ABA_Hom==1){
-      mu_t=0.0;
-      mu_h=chem_readin;
+      mu_t=chem_readin;
+      mu_h=0.0;
       mu_d=-200.0;
-      mu_ref=mu_t;
+      mu_ref=mu_h;
     }else if(AB_ABA_Hom==1){
-      mu_t=0.0;
-      mu_h=chem_readin;
-      mu_d=0.0;
-      mu_ref=mu_d;
+      mu_t=chem_readin;
+      mu_h=0.0;
+      mu_d=chem_readin;
+      mu_ref=mu_h;
     }else{
       std::cout<<"Something is wrong in the inputArguments.hh"<<std::endl;
       exit(1);

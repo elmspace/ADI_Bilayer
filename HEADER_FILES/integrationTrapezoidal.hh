@@ -11,6 +11,8 @@ double integrationTrapezoidal (double **func, int imin, int imax, int jmin, int 
   funcSum=0.0;
 
   if(geom=='c'){
+
+
     i=imin;
     j=jmin;
     funcSum+=func[i][j]*di*dj*(i*di+radius);
@@ -23,18 +25,24 @@ double integrationTrapezoidal (double **func, int imin, int imax, int jmin, int 
     i=imax;
     j=jmax;
     funcSum+=func[i][j]*di*dj*(i*di+radius);
+
+
+
     for(i=(imin+1);i<(imax);i++){
       j=jmin;
       funcSum+=2.0*func[i][j]*di*dj*(i*di+radius);
       j=jmax;
       funcSum+=2.0*func[i][j]*di*dj*(i*di+radius);
     }
+
     for(j=(jmin+1);j<(jmax);j++){
       i=imin;
       funcSum+=2.0*func[i][j]*di*dj*(i*di+radius);
       i=imax;
       funcSum+=2.0*func[i][j]*di*dj*(i*di+radius);
     }
+
+
     for(i=(imin+1);i<(imax);i++){
       for(j=(jmin+1);j<(jmax);j++){
 	funcSum+=4.0*func[i][j]*di*dj*(i*di+radius);

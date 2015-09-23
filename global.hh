@@ -73,7 +73,9 @@ double  ***cal_w, ***del_w, **del_phi, *del_w_ave;
 double **eta, **pin, **chiMatrix;
 double ds, *drz;
 double *f;
+double phi_diblock, phi_triblock, phi_hom;
 int *Ns;
+
 
 // Propagators
 double ***q0, ***q0dag;
