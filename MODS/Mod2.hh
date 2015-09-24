@@ -6,7 +6,7 @@ void Mod2( ){
   std::cout<<"Starting Mod2 function"<<std::endl;
   std::cout<<"++++++++++++++++++++++++++++++++++++++++++++++++++"<<std::endl;
   
-  double mu, mu_Lim=5.9;
+  double mu, mu_Lim=8.9;
   
   allocateMemory(1); // Allocate the first set
   setParameters();
