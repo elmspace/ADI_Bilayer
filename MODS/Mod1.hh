@@ -7,7 +7,7 @@ void Mod1( ){
   std::cout<<"Starting Mod1 function"<<std::endl;
   std::cout<<"++++++++++++++++++++++++++++++++++++++++++++++++++"<<std::endl;
   
-  double R_Max=30.0;
+  double R_Max=100.0;
   double R_Min=0.0;
 
   allocateMemory(1); // Allocate the first set
@@ -25,7 +25,7 @@ void Mod1( ){
     calculateFreeEnergy();
     std::cout<<(R+R_tip)<<" "<<totalFreeEnergy<<" "<<Homogenous_fE<<" "<<Volume<<" "<<Area<<" "<<mu_d<<" "<<mu_t<<" "<<mu_h<<std::endl;
     outputFile1<<(R+R_tip)<<" "<<totalFreeEnergy<<" "<<Homogenous_fE<<" "<<Volume<<" "<<Area<<" "<<mu_d<<" "<<mu_t<<" "<<mu_h<<std::endl;
-    R+=1.0;
+    R+=3.0;
   }while((R+R_tip)<R_Max);
   
   outputFile1.close();

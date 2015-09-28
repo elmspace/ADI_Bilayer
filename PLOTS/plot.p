@@ -1,8 +1,8 @@
 reset
 
 #path= "/home/ash/Desktop/SCFT_CODES/ADI_Bilayer/Test/main/PHI/" # Mac
-#path= "/1/home/dehgha2/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/PHI/" #Landua
-path= "/home/ash/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/PHI/" # Elmspace
+path= "/1/home/dehgha2/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/PHI/" #Landua
+#path= "/home/ash/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/PHI/" # Elmspace
 
 
 set autoscale
@@ -23,8 +23,8 @@ pause(-1)
 reset
 
 #path= "/home/ash/Desktop/SCFT_CODES/ADI_Bilayer/Test/main/PHI/"   # Mac
-#path= "/1/home/dehgha2/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/PHI/"  #Landua
-path= "/home/ash/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/PHI/" #Elmspace
+path= "/1/home/dehgha2/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/PHI/"  #Landua
+#path= "/home/ash/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/PHI/" #Elmspace
 
 
 set autoscale

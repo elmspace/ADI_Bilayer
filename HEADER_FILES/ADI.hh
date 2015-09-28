@@ -1,53 +1,53 @@
 double alpha(int i){
   double val;
-  val=((ds)/(24.0*drz[0]*(((double)i)*drz[0]+R)))-((ds)/(12.0*drz[0]*drz[0]));
+  val=((ds)/(4.0*drz[0]*(((double)i)*drz[0]+R)))-((ds)/(2.0*drz[0]*drz[0]));
   return val;
 }
 double beta(int i,int j, int chain){
   double val;
-  val=1.0+((ds*w[chain][i][j])/(4.0))+((ds)/(6.0*drz[0]*drz[0]));
+  val=1.0+((ds*w[chain][i][j])/(4.0))+((ds)/(drz[0]*drz[0]));
   return val;
 }
 double gamma(int i){
   double val;
-  val=-((ds)/(24.0*drz[0]*(((double)i)*drz[0]+R)))-((ds)/(12.0*drz[0]*drz[0]));
+  val=-((ds)/(4.0*drz[0]*(((double)i)*drz[0]+R)))-((ds)/(2.0*drz[0]*drz[0]));
   return val;
 }
 double theta(int i){
   double val;
-  val=(ds)/(12.0*drz[1]*drz[1]);
+  val=(ds)/(2.0*drz[1]*drz[1]);
   return val;
 }
 double sigma(int i,int j, int chain){
   double val;
-  val=1.0-((ds)/(6.0*drz[1]*drz[1]))-((ds*w[chain][i][j])/(4.0));
+  val=1.0-((ds)/(drz[1]*drz[1]))-((ds*w[chain][i][j])/(4.0));
   return val;
 }
 //________________________________________________________________________
 //________________________________________________________________________
 double thetaHat(int i){
   double val;
-  val=-(ds)/(12.0*drz[1]*drz[1]);
+  val=-(ds)/(2.0*drz[1]*drz[1]);
   return val;
 }
 double sigmaHat(int i,int j, int chain){
   double val;
-  val=1.0+((ds)/(6.0*drz[1]*drz[1]))+((ds*w[chain][i][j])/(4.0));
+  val=1.0+((ds)/(drz[1]*drz[1]))+((ds*w[chain][i][j])/(4.0));
   return val;
 }
 double alphaHat(int i){
   double val;
-  val=((ds)/(12.0*drz[0]*drz[0]))-((ds)/(24.0*drz[0]*(((double)i)*drz[0]+R)));
+  val=((ds)/(2.0*drz[0]*drz[0]))-((ds)/(4.0*drz[0]*(((double)i)*drz[0]+R)));
   return val;
 }
 double betaHat(int i,int j, int chain){
   double val;
-  val=1.0-((ds)/(6.0*drz[0]*drz[0]))-((ds*w[chain][i][j])/(4.0));
+  val=1.0-((ds)/(drz[0]*drz[0]))-((ds*w[chain][i][j])/(4.0));
   return val;
 }
 double gammaHat(int i){
   double val;
-  val=((ds)/(24.0*drz[0]*(((double)i)*drz[0]+R)))+((ds)/(12.0*drz[0]*drz[0]));
+  val=((ds)/(4.0*drz[0]*(((double)i)*drz[0]+R)))+((ds)/(2.0*drz[0]*drz[0]));
   return val;
 }
 //________________________________________________________________________

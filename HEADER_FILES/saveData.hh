@@ -6,7 +6,7 @@ void saveData( ){
   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   // Writting to data files
   std::ofstream outputFile1("./PHI/phi_r.dat");
-  J=NBox/2;
+  J=0;
   for(i=0;i<NBox;i++){
     outputFile1 <<i*drz[0]<<" "<<phi[0][i][J]<<" "<<phi[1][i][J]<<" "<<phi[2][i][J]<<" "<<phi[3][i][J]<<" "<<phi[4][i][J]<<" "<<phi[5][i][J]<<std::endl;
   }

@@ -1,7 +1,7 @@
 reset
 
-path= "/home/ash/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/RESULTS/" # Elmspace
-#path= "/1/home/dehgha2/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/RESULTS/" #Landua
+#path= "/home/ash/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/RESULTS/" # Elmspace
+path= "/1/home/dehgha2/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/RESULTS/" #Landua
 
 
 
@@ -14,7 +14,7 @@ f(x)=0.0
 a1 = 0.0
 b1 = 0.0
 f1(x) = a1*x + b1
-fit [5.0 : 7.0] f1(x) path."Mod2_Results.dat" using  1:(($2-$3)/$4) via a1, b1
+fit [4.0 : 7.0] f1(x) path."Mod2_Results.dat" using  1:(($2-$3)/$4) via a1, b1
 #++++++++++++++++++++++++++++++++++++
 
 set xr [4.0 : 8]
