@@ -14,16 +14,24 @@ void Mod2( ){
   allocateMemory(2); // Allocate the q and qdag
 
   std::ofstream outputFile1("./RESULTS/Mod2_Results.dat");
-  outputFile1<<"#"<<"mu_d"<<" "<<"fE"<<" "<<"fE_homo"<<" "<<"Volume"<<" "<<"Area"<<std::endl;
-  std::cout<<"mu_d"<<" "<<"fE"<<" "<<"fE_homo"<<" "<<"Volume"<<" "<<"Area"<<std::endl;
+  outputFile1<<"#"<<"mu"<<" "<<"fE"<<" "<<"fE_homo"<<" "<<"Volume"<<" "<<"Area"<<std::endl;
+  std::cout<<"mu"<<" "<<"fE"<<" "<<"fE_homo"<<" "<<"Volume"<<" "<<"Area"<<std::endl;
  
   do{
+    
+    if(AB_Hom==1){mu=mu_d;}
+    if(ABA_Hom==1){mu=mu_t;}
+    
+    
     calculateFreeEnergy();
- 
-    std::cout<<mu_d<<" "<<totalFreeEnergy<<" "<<Homogenous_fE<<" "<<Volume<<" "<<Area<<std::endl;
-    outputFile1<<mu_d<<" "<<totalFreeEnergy<<" "<<Homogenous_fE<<" "<<Volume<<" "<<Area<<std::endl;
-    mu_d+=0.05;
-    mu=mu_d;
+    
+    std::cout<<mu<<" "<<totalFreeEnergy<<" "<<Homogenous_fE<<" "<<Volume<<" "<<Area<<std::endl;
+    outputFile1<<mu<<" "<<totalFreeEnergy<<" "<<Homogenous_fE<<" "<<Volume<<" "<<Area<<std::endl;
+    
+    
+    if(AB_Hom==1){mu_d+=0.05;}
+    if(ABA_Hom==1){mu_t+=0.05;}
+    
   
   }while(mu<mu_Lim);
   std::cout<<"+++++++++++++++++++++++++++"<<std::endl;

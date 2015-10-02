@@ -30,7 +30,7 @@ void setParameters( ){
   }
   // Setting the chain lengths________________
   //------------ Diblock
-  Ns[3]=30;//ND
+  Ns[3]=50;//ND
   Ns[4]=100-Ns[3];//NE
   //------------ Triblock
   Ns[0]=50;//NA
