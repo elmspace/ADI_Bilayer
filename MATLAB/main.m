@@ -6,30 +6,30 @@ clear all;
 % into the correct format, mesh
 A=importdata('./xyz.dat');
 %getting the concentration from the data file
-B=importdata('./ABI.dat');
+B=importdata('./ABCD.dat');
 
-[X,Y,Z]=meshgrid(A(:,2),A(:,1),A(:,3));
-
+[X,Y,Z]=meshgrid(A(:,1),A(:,2),A(:,3));
+[X,Y,Z] = pol2cart(X,Y,Z);
 
 % The size is used for the for loop
 x_size=size(A(:,1),1);
 y_size=size(A(:,2),1);
 z_size=size(A(:,3),1);
+
 % Dividing up the concentration values
 VA=zeros(x_size,y_size,z_size);
 VB=zeros(x_size,y_size,z_size);
-VI=zeros(x_size,y_size,z_size);
-VWall=zeros(x_size,y_size,z_size);
+VC=zeros(x_size,y_size,z_size);
+
 % Taking the concentration values and putting them into the correct
 % format, mesh-format
 ii=1;
 for i=1:x_size,
     for j=1:y_size,
         for k=1:z_size,
-            VA(i,j,k)=B(ii,1);
-            VB(i,j,k)=B(ii,2);
-            VI(i,j,k)=B(ii,3);
-            VWall(i,j,k)=B(ii,4);
+            VA(i,j,k)=B(ii,4);
+            VB(i,j,k)=B(ii,5);
+            VC(i,j,k)=B(ii,6);
             ii=ii+1;
         end
     end
@@ -42,8 +42,7 @@ clear ii;
 % Thres3old for the isosurf, 
 cutA=0.5;
 cutB=0.5;
-cutI=0.35;
-cutWall=5.0;
+cutC=0.5;
 
 
 axis vis3d;
@@ -56,32 +55,21 @@ daspect('mode');
 pA = patch(isosurface(X,Y,Z,VA,cutA),'FaceColor','red','EdgeColor','none');
 qA = patch(isocaps(X,Y,Z,VA,cutA),'FaceColor','red','EdgeColor', ...
          'none');
-alpha(pA,1.0);
-alpha(qA,1.0);
+alpha(pA,0.5);
+alpha(qA,0.5);
+
 % B
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 pB = patch(isosurface(X,Y,Z,VB,cutB),'FaceColor','green','EdgeColor','none');
 qB = patch(isocaps(X,Y,Z,VB,cutB),'FaceColor','green','EdgeColor', ...
           'none');
-alpha(pB,1.0);
-alpha(qB,1.0);
+alpha(pB,0.5);
+alpha(qB,0.5);
 
-% I
+% C
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-pI = patch(isosurface(X,Y,Z,VI,cutI),'FaceColor','yellow','EdgeColor','none');
-qI = patch(isocaps(X,Y,Z,VI,cutI),'FaceColor','yellow','EdgeColor', ...
-          'none');
-alpha(pI,0.4);
-alpha(qI,0.4);
-
-
-% Wall
-% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-pWall = patch(isosurface(X,Y,Z,VWall,cutWall),'FaceColor','black','EdgeColor','none');
-qWall = patch(isocaps(X,Y,Z,VWall,cutWall),'FaceColor','black','EdgeColor', ...
-          'none');
-alpha(pWall,1.0);
-alpha(qWall,1.0);
-
-
-
+pC = patch(isosurface(X,Y,Z,VC,cutC),'FaceColor','blue','EdgeColor','none');
+qC = patch(isocaps(X,Y,Z,VC,cutC),'FaceColor','blue','EdgeColor', ...
+           'none');
+alpha(pC,0.2);
+alpha(qC,0.2);
