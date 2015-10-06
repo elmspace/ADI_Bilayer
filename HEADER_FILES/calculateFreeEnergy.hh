@@ -98,8 +98,11 @@ void calculateFreeEnergy( ){
       //std::cout<<"iter="<<iter<<"  "<<"fE="<<totalFreeEnergy<<"  "<<"fE_Hom="<<Homogenous_fE<<"  "<<"delW="<<delta_W<<"  "<<"P_t_ave="<<(p_ave[0]+p_ave[1]+p_ave[2])<<"  "<<"P_d_ave="<<(p_ave[3]+p_ave[4])<<"  "<<"P_h_ave="<<p_ave[5]<<std::endl;
       std::cout<<iter<<"  "<<(totalFreeEnergy-Homogenous_fE)/Volume<<"  "<<delta_W<<"  "<<phi_diblock<<"  "<<phi_hom<<"  "<<phi_triblock<<std::endl;
     }
-      
-    saveData();
+    
+    if((iter%100)==0){
+      saveData();
+    }
+
     iter++;
   }while((delta_W>precision)||(iter<200));
 
