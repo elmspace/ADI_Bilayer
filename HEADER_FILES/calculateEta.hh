@@ -22,7 +22,7 @@ void calculateEta( ){
   
   if(Pore==1 || Disk==1){
     I_pin=NBox/2;
-    J_pin=0;
+    J_pin=NBox/2;
     R_tip=drz[0]*I_pin;
     pin_cond=1.0;
   }

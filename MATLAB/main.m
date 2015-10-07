@@ -46,25 +46,28 @@ cutC=0.5;
 
 
 axis vis3d;
-view([0,0,1]);
+view([1.0,-2.5,1.5]);
 axis off;
 daspect('mode');
+
+camlight
+lighting gouraud
 
 
 % A    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 pA = patch(isosurface(X,Y,Z,VA,cutA),'FaceColor','red','EdgeColor','none');
 qA = patch(isocaps(X,Y,Z,VA,cutA),'FaceColor','red','EdgeColor', ...
          'none');
-alpha(pA,0.5);
-alpha(qA,0.5);
+alpha(pA,0.6);
+alpha(qA,0.6);
 
 % B
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 pB = patch(isosurface(X,Y,Z,VB,cutB),'FaceColor','green','EdgeColor','none');
 qB = patch(isocaps(X,Y,Z,VB,cutB),'FaceColor','green','EdgeColor', ...
           'none');
-alpha(pB,0.5);
-alpha(qB,0.5);
+alpha(pB,0.6);
+alpha(qB,0.6);
 
 % C
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
