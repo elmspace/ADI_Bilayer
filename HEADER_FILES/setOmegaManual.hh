@@ -60,66 +60,67 @@ void setOmegaManual( ){   // 1=LamPar 2=LamPer 3=Bilayer 4=Pore 5=Disk
 	phi[5][i][j]=1.0;
       }
     }
-    /*
-    for(i=0;i<NBox;i++){
-      for(j=0;j<2;j++){
-	phi[1][i][j]=11.0;
-	phi[4][i][j]=11.0;
-	phi[5][i][j]=0.0;
+    if(J_pin==0){
+      for(i=0;i<NBox;i++){
+	for(j=0;j<2;j++){
+	  phi[1][i][j]=11.0;
+	  phi[4][i][j]=11.0;
+	  phi[5][i][j]=0.0;
+	}
+      }
+    }else{
+      for(i=0;i<NBox;i++){
+	for(j=(NBox/2 - 1);j<(NBox/2 + 1);j++){
+	  phi[1][i][j]=11.0;
+	  phi[4][i][j]=11.0;
+	  phi[5][i][j]=0.0;
+	}
       }
     }
-    */
-    for(i=0;i<NBox;i++){
-      for(j=(NBox/2 - 1);j<(NBox/2 + 1);j++){
-	phi[1][i][j]=11.0;
-	phi[4][i][j]=11.0;
-	phi[5][i][j]=0.0;
-      }
-    }
-  
   }else if (phase==4){ // Pore
     for(i=0;i<NBox;i++){
       for(j=0;j<NBox;j++){
 	phi[5][i][j]=1.0;
       }
     }
-    /*
-    for(i=(NBox/2);i<NBox;i++){
-      for(j=0;j<2;j++){
-	phi[1][i][j]=11.0;
-	phi[4][i][j]=11.0;
-	phi[5][i][j]=0.0;
+    if(J_pin==0){
+      for(i=(NBox/2);i<NBox;i++){
+	for(j=0;j<2;j++){
+	  phi[1][i][j]=11.0;
+	  phi[4][i][j]=11.0;
+	  phi[5][i][j]=0.0;
+	}
+      }
+    }else{
+      for(i=(NBox/2);i<NBox;i++){
+	for(j=(NBox/2 - 1);j<(NBox/2 + 1);j++){
+	  phi[1][i][j]=10.0;
+	  phi[4][i][j]=10.0;
+	  phi[5][i][j]=0.0;
+	}
       }
     }
-    */
-    for(i=(NBox/2);i<NBox;i++){
-      for(j=(NBox/2 - 1);j<(NBox/2 + 1);j++){
-	phi[1][i][j]=10.0;
-	phi[4][i][j]=10.0;
-	phi[5][i][j]=0.0;
-      }
-    }
-    
   }else if (phase==5){ // Disk
     for(i=0;i<NBox;i++){
       for(j=0;j<NBox;j++){
 	phi[5][i][j]=1.0;
       }
     }
-    /*
-    for(i=0;i<(NBox/2);i++){
-      for(j=0;j<2;j++){
-	phi[1][i][j]=11.0;
-	phi[4][i][j]=11.0;
-	phi[5][i][j]=0.0;
+    if(J_pin==0){
+      for(i=0;i<(NBox/2);i++){
+	for(j=0;j<2;j++){
+	  phi[1][i][j]=11.0;
+	  phi[4][i][j]=11.0;
+	  phi[5][i][j]=0.0;
+	}
       }
-    }
-    */
-    for(i=0;i<(NBox/2);i++){
-      for(j=(NBox/2 - 1);j<(NBox/2 + 1);j++){
-	phi[1][i][j]=1.0;
-	phi[4][i][j]=1.0;
-	phi[5][i][j]=0.0;
+    }else{
+      for(i=0;i<(NBox/2);i++){
+	for(j=(NBox/2 - 1);j<(NBox/2 + 1);j++){
+	  phi[1][i][j]=1.0;
+	  phi[4][i][j]=1.0;
+	  phi[5][i][j]=0.0;
+	}
       }
     }
   }

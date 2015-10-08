@@ -13,6 +13,11 @@ using namespace std;
 #define ChainType 6
 #define deltaBox 0.1/NBox
 
+// Hydrophobic/phillic interaction
+double mol_int=30.0;         // xN -> hydrophilic/hydrophobic interaction
+double N_lipid = 100;        // NAB
+double N_hydrophilic  = 50;  // NA
+
 // Choosing the type of ensemble
 int Canonical = 0;
 int GrandCanonical = 1;
@@ -33,7 +38,9 @@ int Mod_global;
 int print_fE = 0;
 
 double pin_cond;
-int iter_global, I_pin, J_pin;
+int iter_global;
+int I_pin=int(NBox/2);
+int J_pin=0;
   
 // Simple mixing parameters 
 double epsilon_w=0.05;
