@@ -2,6 +2,7 @@ void setOmegaManual( ){   // 1=LamPar 2=LamPer 3=Bilayer 4=Pore 5=Disk
 
   int i, j, chain,ii,jj;
   int phase;
+  double numb_period=1.0;
 
   if(LamPar==1){
     phase=1;
@@ -33,24 +34,26 @@ void setOmegaManual( ){   // 1=LamPar 2=LamPer 3=Bilayer 4=Pore 5=Disk
 
 
   if(phase==1){ // Lam Parallel (modulation in z direction)
+    numb_period=LZ/4.1; // 4.1 is for AB Lam fA=0.5 xAB=20
     for(i=0;i<NBox;i++){
       for(j=0;j<NBox;j++){
-	phi[0][i][j]=cos(2.0*Pi*j/NBox)+1.0;
-	phi[1][i][j]=-cos(2.0*Pi*j/NBox)+1.0;
-	phi[2][i][j]=cos(2.0*Pi*j/NBox)+1.0;
-	phi[3][i][j]=cos(2.0*Pi*j/NBox)+1.0;
-	phi[4][i][j]=-cos(2.0*Pi*j/NBox)+1.0;
+	phi[0][i][j]=cos(numb_period*2.0*Pi*j/NBox)+1.0;
+	phi[1][i][j]=-cos(numb_period*2.0*Pi*j/NBox)+1.0;
+	phi[2][i][j]=cos(numb_period*2.0*Pi*j/NBox)+1.0;
+	phi[3][i][j]=cos(numb_period*2.0*Pi*j/NBox)+1.0;
+	phi[4][i][j]=-cos(numb_period*2.0*Pi*j/NBox)+1.0;
 	phi[5][i][j]=0.0;
       }
     }   
   }else if(phase==2){ // Lam Perpendicular (modulation in r direction)
+    numb_period=LR/4.1; // 4.1 is for AB Lam fA=0.5 xAB=20
     for(i=0;i<NBox;i++){
       for(j=0;j<NBox;j++){
-	phi[0][i][j]=cos(2.0*Pi*i/NBox)+1.0;
-	phi[1][i][j]=-cos(2.0*Pi*i/NBox)+1.0;
-	phi[2][i][j]=cos(2.0*Pi*i/NBox)+1.0;
-	phi[3][i][j]=cos(2.0*Pi*i/NBox)+1.0;
-	phi[4][i][j]=-cos(2.0*Pi*i/NBox)+1.0;
+	phi[0][i][j]=cos(numb_period*2.0*Pi*i/NBox)+1.0;
+	phi[1][i][j]=-cos(numb_period*2.0*Pi*i/NBox)+1.0;
+	phi[2][i][j]=cos(numb_period*2.0*Pi*i/NBox)+1.0;
+	phi[3][i][j]=cos(numb_period*2.0*Pi*i/NBox)+1.0;
+	phi[4][i][j]=-cos(numb_period*2.0*Pi*i/NBox)+1.0;
 	phi[5][i][j]=0.0;
       }
     }

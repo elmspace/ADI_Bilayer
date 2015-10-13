@@ -1,7 +1,7 @@
 reset
 
-path= "/Users/ashkandehghan/Desktop/SCFT_CODES/ADI_Bilayer/PHI/" # Mac
-#path= "/1/home/dehgha2/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/PHI/" #Landua
+#path= "/Users/ashkandehghan/Desktop/SCFT_CODES/ADI_Bilayer/PHI/" # Mac
+path= "/1/home/dehgha2/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/PHI/" #Landua
 #path= "/home/ash/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/PHI/" # Elmspace
 
 
@@ -22,8 +22,8 @@ pause(-1)
 
 reset
 
-path= "/Users/ashkandehghan/Desktop/SCFT_CODES/ADI_Bilayer/PHI/"   # Mac
-#path= "/1/home/dehgha2/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/PHI/"  #Landua
+#path= "/Users/ashkandehghan/Desktop/SCFT_CODES/ADI_Bilayer/PHI/"   # Mac
+path= "/1/home/dehgha2/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/PHI/"  #Landua
 #path= "/home/ash/Desktop/SCFT_CODES/ADI_Bilayer/ADI_Bilayer/PHI/" #Elmspace
 
 

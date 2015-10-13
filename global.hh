@@ -14,9 +14,9 @@ using namespace std;
 #define deltaBox 0.1/NBox
 
 // Hydrophobic/phillic interaction
-double mol_int=30.0;         // xN -> hydrophilic/hydrophobic interaction
+double mol_int=20.0;         // xN -> hydrophilic/hydrophobic interaction
 double N_lipid = 100;        // NAB
-double N_hydrophilic  = 50;  // NA
+double N_hydrophilic  = N_lipid/2;  // NA
 
 // Choosing the type of ensemble
 int Canonical = 0;
