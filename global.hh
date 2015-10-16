@@ -9,14 +9,14 @@ using namespace std;
 
 #define Pi 3.14159
 
-#define NBox 64
+#define NBox 128
 #define ChainType 6
 #define deltaBox 0.1/NBox
 
 // Hydrophobic/phillic interaction
-double mol_int=20.0;         // xN -> hydrophilic/hydrophobic interaction
-double N_lipid = 100;        // NAB
-double N_hydrophilic  = N_lipid/2;  // NA
+double mol_int=30.0;         // xN -> hydrophilic/hydrophobic interaction
+double N_lipid = 300;        // NAB
+double N_hydrophilic  = (0.5)*N_lipid;  // NA
 
 // Choosing the type of ensemble
 int Canonical = 0;
