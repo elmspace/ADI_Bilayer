@@ -1,3 +1,6 @@
+/*
+  In this header-file, we solve the diffusion equations for the AB, ABA and H chains using the ADI method.
+*/
 void solveDiffusionEquation(int species){
 
   int i,j,s;
@@ -123,6 +126,7 @@ void solveDiffusionEquation(int species){
     Q_F*=(2.0*Pi);
   }else{// Error check
     std::cout<<"Something went wrong in solveDiffusionEquation function!"<<std::endl;
+    exit(1);
   }
     
   return;

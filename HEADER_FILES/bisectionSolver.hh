@@ -1,7 +1,8 @@
 /*
   This function will use the input and calculates the bisection method to find the root
   In this function c is the result
-  You do not need to give the function two parameters, it will find the appropiate inputs by itself
+  You do not need to give the function two parameters, it will find the appropiate inputs by itself.
+  For more information on the bisection method, visit: (https://en.wikipedia.org/wiki/Bisection_method)
 */
 double bisectionSolver (double &mu){
 

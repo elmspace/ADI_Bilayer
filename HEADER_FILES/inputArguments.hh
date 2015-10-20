@@ -1,3 +1,10 @@
+/*
+  In this file we analyze the command line input arguments. 
+  - The arguments read in are in order:
+  - 1-> B=Bilayer P=Pore D=Disk
+  - 2-> Mod number, which determines what type of calculatin is being done
+  - 3-> Chemical Potential
+*/
 void inputArguments(int numb_of_args, char* arg_input[]){
 
   double chem_readin;
@@ -13,7 +20,7 @@ void inputArguments(int numb_of_args, char* arg_input[]){
   }else if(strcmp( arg_input[1], "LPer") == 0){
     LamPer=1;
   }else{
-    std::cout<<"The phase you have chosen does not exists!"<<std::endl;
+    std::cout<<"The phase you have chosen does not exists! check: inputArguments.hh"<<std::endl;
     exit(1);
   }
  
@@ -36,11 +43,11 @@ void inputArguments(int numb_of_args, char* arg_input[]){
       mu_d=chem_readin;
       mu_ref=mu_h;
     }else{
-      std::cout<<"Something is wrong in the inputArguments.hh"<<std::endl;
+      std::cout<<"The ensemble you have chosen is not correct. check: inputArguments.hh"<<std::endl;
       exit(1);
     }
   }else{
-    std::cout<<"The chemical potential input is not correct. Something is wrong in the inputArguments.hh"<<std::endl;
+    std::cout<<"The chemical potential input is not correct. check: inputArguments.hh"<<std::endl;
     exit(1);
   }
 

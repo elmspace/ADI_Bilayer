@@ -1,5 +1,5 @@
 /*
-  In this function, we will be calculating the free energy
+  In this function we will be calculating the free energy using the ADI technique.
 */
 void calculateFreeEnergy( ){
 
@@ -75,6 +75,7 @@ void calculateFreeEnergy( ){
 	}
       }
     }
+    // Calculating the components of the free energy
     Interaction_fE=integrationTrapezoidal(dum_func1,0,(NBox-1),0,(NBox-1),drz[0],drz[1],'c')/2.0;// 2 is for double counting
     Omega_fE=integrationTrapezoidal(dum_func2,0,(NBox-1),0,(NBox-1),drz[0],drz[1],'c');
         
@@ -82,7 +83,8 @@ void calculateFreeEnergy( ){
     Interaction_fE*=(2.0*Pi);
     
     totalFreeEnergy=Interaction_fE-Omega_fE-Entropy_fE;
-
+    
+    // Setting some parameters for the output.
     phi_diblock=0.0;
     phi_triblock=0.0;
     phi_hom=0.0;
@@ -92,11 +94,9 @@ void calculateFreeEnergy( ){
     phi_hom=integrationTrapezoidal(phi[5],0,(NBox-1),0,(NBox-1),drz[0],drz[1],'c');
     phi_hom*=(2.0*Pi/Volume);
     phi_triblock=1.0-phi_diblock-phi_hom;
-    
 
     if(print_fE==1){
-      //std::cout<<"iter="<<iter<<"  "<<"fE="<<totalFreeEnergy<<"  "<<"fE_Hom="<<Homogenous_fE<<"  "<<"delW="<<delta_W<<"  "<<"P_t_ave="<<(p_ave[0]+p_ave[1]+p_ave[2])<<"  "<<"P_d_ave="<<(p_ave[3]+p_ave[4])<<"  "<<"P_h_ave="<<p_ave[5]<<std::endl;
-      std::cout<<iter<<"  "<<(totalFreeEnergy-Homogenous_fE)/Volume<<"  "<<delta_W<<"  "<<phi_diblock<<"  "<<phi_hom<<"  "<<phi_triblock<<std::endl;
+      std::cout<<"Iteration= "<<iter<<"     FreeEnergy= "<<(totalFreeEnergy-Homogenous_fE)/Volume<<"   Convergence Condition= "<<delta_W<<"    Stops when less than= "<<precision<<std::endl;
     }
     
     if((iter%100)==0){
@@ -104,6 +104,7 @@ void calculateFreeEnergy( ){
     }
 
     iter++;
+    
   }while((delta_W>precision)||(iter<200));
 
   

@@ -1,10 +1,16 @@
+/*
+ In this file we save data to either be used for next generation calculation,
+ or for visualization purposes. Plotting scripts can be found in PLOT and MATLAB files.
+*/
 void saveData( ){
 
   int i, j ,k;
   int J, I;
+
+  std::cout<<"Saving data . . ."<<std::endl;
   
   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  // Writting to data files
+  // Writting to data files (1D phi output in the r-direction)
   std::ofstream outputFile1("./PHI/phi_r.dat");
   J=J_pin;
   for(i=0;i<NBox;i++){
@@ -13,9 +19,8 @@ void saveData( ){
   outputFile1.close();
   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-
   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  // Writting to data files
+  // Writting to data files (1D phi output in the z-direction)
   std::ofstream outputFile2("./PHI/phi_z.dat");
   if(Pore==1){
     I=NBox-1;
@@ -34,7 +39,7 @@ void saveData( ){
 
 
   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  // Writting to data files
+  // Writting to data files (2D phi out put, in the r-z plane)
   std::ofstream outputFile3("./PHI/phi2D.dat");
   for(i=0;i<NBox;i++){
     for(j=0;j<NBox;j++){
@@ -45,12 +50,8 @@ void saveData( ){
   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
-
-
-
-
   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  // Writting to data files
+  // Writting to data files (Omega output mainly used for input, for next generation calculations)
   std::ofstream outputFile4("./OMEGA/omega.dat");
   for(i=0;i<NBox;i++){
     for(j=0;j<NBox;j++){
@@ -61,7 +62,7 @@ void saveData( ){
   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  // Writting to data files
+  // Writting to data files (Phi output mainly used for input, for next generation calculations)
   std::ofstream outputFile5("./OMEGA/phi.dat");
   for(i=0;i<NBox;i++){
     for(j=0;j<NBox;j++){
@@ -72,9 +73,9 @@ void saveData( ){
   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
-
   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++   Writting Phi for Matlab plotting
- 
+  // The following create data files in the format that can be read by the Matlab script
+  // This creates a 3D sctructire.
   double theta=0.0;
   double delta_theta=(3.0*Pi/2.0)/(NBox-1);
   

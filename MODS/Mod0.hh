@@ -1,5 +1,6 @@
 /*
-  This Mod will calculate Free energy
+  In Mod0, we calculate the free energy for a give set of parameters.
+  Results are printed and not saved, this mode is mainly for testing.
 */
 void Mod0( ){
 
@@ -9,8 +10,7 @@ void Mod0( ){
   setOmegaManual();
   allocateMemory(2); // Allocate the q and qdag
   calculateFreeEnergy();
-  std::cout<<"NBox"<<" "<<"fE/Vol"<<std::endl;
-  std::cout<<NBox<<" "<<(totalFreeEnergy-Homogenous_fE)/Volume<<std::endl;
+  std::cout<<"Box Size=  "<<NBox<<"  "<<"FreeEnergy=  "<<(totalFreeEnergy-Homogenous_fE)/Volume<<std::endl;
   allocateMemory(-1); // Deallocating memory
     
   return;

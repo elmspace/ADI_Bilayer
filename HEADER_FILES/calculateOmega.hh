@@ -1,3 +1,6 @@
+/*
+  In this function,  we are calculating the omega fields.
+*/
 void calculateOmega( ){
 
   int i, j;
@@ -12,6 +15,7 @@ void calculateOmega( ){
 	for(jj=0;jj<ChainType;jj++){  
 	  cal_w[ii][i][j]+=chiMatrix[ii][jj]*phi[jj][i][j];
 	}
+	// Add the pinning condition 
 	if(ii==0){cal_w[ii][i][j]+=eta[i][j]-pin[i][j];}
 	if(ii==1){cal_w[ii][i][j]+=eta[i][j]+pin[i][j];}
 	if(ii==2){cal_w[ii][i][j]+=eta[i][j]-pin[i][j];}

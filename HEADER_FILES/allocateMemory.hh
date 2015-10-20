@@ -1,5 +1,7 @@
+/*
+  In this header-file, I allocate the memory used in the program.
+*/
 void allocateMemory(int index){
-
 
   if(index==1){
     // Allocationg memory
@@ -28,6 +30,7 @@ void allocateMemory(int index){
     del_w_ave=create_1d_double_array(ChainType,"del_w_ave");
     f=create_1d_double_array(ChainType,"f");
   }else if(index==2){
+    // Allocating memory for propagators, after Ns values are defined
     q0=create_3d_double_array(NBox,NBox,Ns[0],"q0");
     q1=create_3d_double_array(NBox,NBox,Ns[1],"q1");
     q2=create_3d_double_array(NBox,NBox,Ns[2],"q2");
@@ -40,8 +43,8 @@ void allocateMemory(int index){
     q3dag=create_3d_double_array(NBox,NBox,Ns[3],"q3dag");
     q4dag=create_3d_double_array(NBox,NBox,Ns[4],"q4dag");
     q5dag=create_3d_double_array(NBox,NBox,Ns[5],"q5dag");
-  }else if(index==-1){ //Deallocating memory
-    //Destroy memory allocations------------
+  }else if(index==-1){
+    //Deallocating memory
     destroy_3d_double_array(w);
     destroy_1d_double_array(phiAve);
     destroy_1d_double_array(p_ave);
@@ -80,7 +83,8 @@ void allocateMemory(int index){
     destroy_1d_double_array(f);
     //-------------------------------------
   }else{
-    std::cout<<"Something bad happened in allocateMemory function."<<std::endl;
+    std::cout<<"Please check your input to allocateMemory.hh file."<<std::endl;
+    exit(1);
   }
   return;
 };

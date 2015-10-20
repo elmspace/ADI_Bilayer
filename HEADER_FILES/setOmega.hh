@@ -1,5 +1,5 @@
 /*
-In this function, we will initialize the omega fields
+  In this function, we will initialize the omega fields
 */
 void setOmega( ){
 
@@ -7,7 +7,6 @@ void setOmega( ){
   double epsln=0.1;
   double p_ABC, p_DE, p_F;
 
-  
   // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   std::ifstream infile;

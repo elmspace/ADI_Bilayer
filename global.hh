@@ -4,29 +4,30 @@
 #include <complex>
 #include <stdlib.h> 
 #include <math.h>      
-#include "./include/smemory.hh"
+
 using namespace std;
 
+// Defined parameters
 #define Pi 3.14159
-
-#define NBox 128
+#define NBox 64
 #define ChainType 6
 #define deltaBox 0.1/NBox
 
 // Hydrophobic/phillic interaction
 double mol_int=30.0;         // xN -> hydrophilic/hydrophobic interaction
-double N_lipid = 300;        // NAB
+double N_lipid = 100;        // NAB
 double N_hydrophilic  = (0.5)*N_lipid;  // NA
 
 // Choosing the type of ensemble
 int Canonical = 0;
 int GrandCanonical = 1;
 
-// Blend
+// Type of Polymer Blend
 int AB_Hom = 1;
 int ABA_Hom = 0;
 int AB_ABA_Hom = 0;
 
+// Structure of system
 int Bilayer = 0;
 int Pore = 0;
 int Disk = 0;
@@ -35,8 +36,10 @@ int LamPer = 0;
 
 int Mod_global;
 
+// Set to 1 to print during calculation
 int print_fE = 0;
 
+// Pinning condition
 double pin_cond;
 int iter_global;
 int I_pin=int(NBox/2);
@@ -74,6 +77,7 @@ double Volume, Area;
 double delta_W, delta_Phi;
 double precision=1.0e-3;
 
+// Parameters
 double LR, LZ;
 double ***w, ***phi, *phiAve, *p_ave, *w_ave;
 double  ***cal_w, ***del_w, **del_phi, *del_w_ave;
@@ -82,7 +86,6 @@ double ds, *drz;
 double *f;
 double phi_diblock, phi_triblock, phi_hom;
 int *Ns;
-
 
 // Propagators
 double ***q0, ***q0dag;
@@ -97,8 +100,6 @@ double **qini, **qmid;
 double *Mu, *Mm, *Ml;
 double *Rvector; 
 
-// dummy functions
+// Dummy functions used for integration
 double **dum_func1,**dum_func2,**dum_func3;
-
-
 

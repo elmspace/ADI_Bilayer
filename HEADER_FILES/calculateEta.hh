@@ -1,3 +1,9 @@
+/*
+  This header-file contains the algorithm that does the following:
+  1-	Calculates the Lagrange Multiplier that ensures the incompressibility of the system.
+  2-	Applies the pinning condition for the pore and disk geometry.
+
+*/
 void calculateEta( ){
 
   int     i,j,chain;
@@ -5,7 +11,7 @@ void calculateEta( ){
   double  phiTotal;
   double pin_delphi;
 
-  
+  // This part contains the code for the incompresibility condition
   phiTotal=0.0;
   for(i=0;i<NBox;i++){
     for(j=0;j<NBox;j++){
@@ -20,6 +26,7 @@ void calculateEta( ){
     }
   }
   
+  // This part takes care of the pinning condition
   if(Pore==1 || Disk==1){
     R_tip=drz[0]*I_pin;
     pin_cond=1.0;

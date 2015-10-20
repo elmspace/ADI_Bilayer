@@ -1,6 +1,7 @@
 /*
-  This Mod will calculate Free energy as a function of Radius
-  Results are saved in /RESULTS/Mod1_Results.dat
+  In Mod1, we calculate the Free energy as a function of radius.
+  The result is saved in RESULTS/Mod1_Results.dat
+  You can plot the results by running the Mod1_Result.p script in Gnuplot platform
 */
 void Mod1( ){
 

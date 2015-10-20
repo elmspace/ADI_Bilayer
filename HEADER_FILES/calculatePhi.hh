@@ -27,7 +27,7 @@ void calculatePhi(){
 	    if(chain==5){phi[chain][i][j]+=q5[i][j][s]*q5dag[i][j][Ns[chain]-s]*ds;}
 	  }
 	}
-
+	// Adding the constant infront, depending on the type of ensemble
 	if(Canonical==1){
 	  if(chain==0){phi[chain][i][j]*=phiAve[0]/(kappa_triblock*Q_ABC);}
 	  if(chain==1){phi[chain][i][j]*=phiAve[0]/(kappa_triblock*Q_ABC);}
@@ -44,6 +44,7 @@ void calculatePhi(){
 	  if(chain==5){phi[chain][i][j]*=(act_h/kappa_homopolymer);}
 	}else{
 	  std::cout<<"Something is wrong in calculatePhi function!"<<std::endl;
+	  exit(1);
 	}
 	
       }

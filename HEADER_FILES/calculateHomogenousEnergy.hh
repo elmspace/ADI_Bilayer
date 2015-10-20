@@ -1,3 +1,7 @@
+/*
+  In this function, we will be calculating the homogenous free energy.
+  Depending on the type of ensemble chosen, either the canonical or grand canonical.
+*/
 double calculatedHomogenousEnergy( ){
 
   int    i, j, ii, jj, chain, iter;
@@ -6,8 +10,8 @@ double calculatedHomogenousEnergy( ){
   double Qt_ave, Qd_ave, Qh_ave; 
   double fE_homo;
 
-
-  if(Canonical==1){ //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  
+  if(Canonical==1){ // Calculating the canonical free energy
   
     fE_homo=0.0;
     for(i=0;i<ChainType;i++){
@@ -17,7 +21,7 @@ double calculatedHomogenousEnergy( ){
     }
     fE_homo/=2.0;
 
-  }else if(GrandCanonical==1){ //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  }else if(GrandCanonical==1){ // Calculating the grand canonical free energy
 
 
     p_ave[0]=0.002;
@@ -68,21 +72,12 @@ double calculatedHomogenousEnergy( ){
       dw=abs(del_w_ave[0]+del_w_ave[1]+del_w_ave[2]+del_w_ave[3]+del_w_ave[4]+del_w_ave[5])/(double)ChainType;
 
       for(ii=0;ii<ChainType;ii++){
-	//w_ave[ii]+=epsilon_w*del_w_ave[ii];//-epsilon_phi*dp;
 	w_ave[ii]+=0.005*del_w_ave[ii];
       }
 
-      
-
       iter++;
     }while(iter<100000);
- 
-    //std::cout<<"iter= "<<iter<<"   dw= "<<dw<<"   tri= "<<p_ave[0]+p_ave[1]+p_ave[2]<<"   di= "<<p_ave[3]+p_ave[4]<<"   hom= "<<p_ave[5]<<" dp="<<dp<<std::endl;
-
-    //std::cout<<"w0= "<<w_ave[0]<<"w1= "<<w_ave[1]<<"w2= "<<w_ave[2]<<"w3= "<<w_ave[3]<<"w4= "<<w_ave[4]<<"w5= "<<w_ave[5]<<std::endl;
-    //std::cout<<"p0= "<<p_ave[0]<<"p1= "<<p_ave[1]<<"p2= "<<p_ave[2]<<"p3= "<<p_ave[3]<<"p4= "<<p_ave[4]<<"p5= "<<p_ave[5]<<std::endl;
-
-    
+  
     fE_homo=0.0;
     for(ii=0;ii<ChainType;ii++){
       for(jj=0;jj<ChainType;jj++){  
@@ -93,9 +88,7 @@ double calculatedHomogenousEnergy( ){
     fE_homo-=((act_t*Qt_ave/kappa_triblock)+(act_d*Qd_ave/kappa_diblock)+(act_h*Qh_ave/kappa_homopolymer));
     
   }
-  //std::cout<<fE_homo<<std::endl;
   
-  //std::cin>>ii;
   return fE_homo;
 
 };

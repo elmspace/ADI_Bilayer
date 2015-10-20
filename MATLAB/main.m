@@ -1,5 +1,4 @@
-% Program IsoSurface, run by typing run("./main.m")
-
+% Program IsoSurface, run by typing run("./main.m") in Matlab capable enviroment
 % Clear all previous variables
 clear all;
 % Getting the coordiante variables from the data, and making them

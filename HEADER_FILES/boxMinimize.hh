@@ -1,3 +1,7 @@
+/*
+  This header-file contains the algorithm that minimizes the free 
+  energy of the system by looking at small changes in the box size.
+*/
 void boxMinimize( ){
 
   int i, exit_code;

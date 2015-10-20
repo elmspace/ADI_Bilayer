@@ -124,7 +124,10 @@ void setParameters( ){
   
 
 
-  // Print out
+  // Here is a summary of the parameters being used:
+  std::cout<<"Here is a summary of the parameters being used:"<<std::endl;
+  std::cout<<" "<<std::endl;
+  std::cout<<" "<<std::endl;
   std::cout<<"xAB= "<<xAB<<std::endl;
   std::cout<<" "<<std::endl;
   std::cout<<"kappa_H="<<kappa_homopolymer<<std::endl;
@@ -144,5 +147,6 @@ void setParameters( ){
   std::cout<<" "<<std::endl;
   std::cout<<" "<<std::endl;
   std::cout<<" "<<std::endl;
+  std::cout<<"_____________________________________________________"<<std::endl;
 
 };

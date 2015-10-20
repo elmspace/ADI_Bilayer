@@ -1,4 +1,8 @@
-void setOmegaManual( ){   // 1=LamPar 2=LamPer 3=Bilayer 4=Pore 5=Disk
+/*
+  This file sets the omega functions manually.
+  1=LamPar 2=LamPer 3=Bilayer 4=Pore 5=Disk
+*/
+void setOmegaManual( ){
 
   int i, j, chain,ii,jj;
   int phase;

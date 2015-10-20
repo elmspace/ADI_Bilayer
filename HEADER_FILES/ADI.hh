@@ -1,3 +1,9 @@
+/*
+  This header-file contains the algorithm that preforms the Alternating Direction Implicit method.
+  For more information on this file, please look at the included pdf file (theory.pdf)
+  and for more general idea of what the algorithm does, visit:
+  (https://en.wikipedia.org/wiki/Alternating_direction_implicit_method)
+*/
 double alpha(int i){
   double val;
   val=((ds)/(4.0*drz[0]*(((double)i)*drz[0]+R)))-((ds)/(2.0*drz[0]*drz[0]));
@@ -292,7 +298,7 @@ void Make_q(char step, int index, int s, int chain, int direction){
 } 
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// This goes over the actual ADI algorithm.
+// This part goes over the actual ADI algorithm.
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 void ADI(int chain, int direction){
 
